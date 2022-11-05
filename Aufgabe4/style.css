@@ -2,51 +2,116 @@ body {
     background-image: url(hd-wallpaper-gad757a440_1280.jpg);
     text-align: center;
     font-size: 32px;
-    margin-top: 0%;
-    padding: 0px;
+   
 
 }
 
-header {
+#header {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-image: url(Bild.jpg);
-    height: 500px;
+    height: 400px;
     padding: 0%;
-    background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: 1000px;
+    background-size: 1500px 1000px;
     background-attachment: fixed;
-}
+    width:100%;
+    left:0px;
+    margin-left: 0px;
+margin-bottom: 20px;
+position: absolute;
+top: 0px;}
 
-u {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
+.title {margin-top: 400px;
+text-align: center;}
+
 
 li {
     display: inline;
     float: right;
+    margin-top: 0%;
 }
 
 li a {
     display: block;
     color: black;
-    text-align: center;
+    text-align: right;
     margin-top: 0px;
     padding: 8px;
     text-decoration: none;
+    
 }
 
-footer {
+#footer {
     background-color: #eaeaea;
+    width: 100%;
+    padding: 8px;
+    height: 200px;
+left: 0px;
+bottom: 0px;
+position: absolute;
+margin-bottom: -700px;
+display:flex;
+justify-content: space-between;
+align-items: center;}
 
-    padding: 8px;}
 
-
+a{float: left;}
 
 a:hover {
     text-decoration: underline;
-    color: white;
+    color: whitesmoke;
 }
+.link {margin-left: 5%;}
+
+.contact {margin:0 auto;
+margin-bottom: -40px;}
+
+.adresse {text-align: center;
+margin-right: -10%;
+display: inline-block;
+font-size: 12pt;
+margin: 0 auto;}
+
+.copyright {text-align: center;
+display: inline-block;
+font-size: 12pt;
+margin: 0 auto;}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+  }
+
+.socialmedia {color: black;
+text-decoration: none;
+position: absolute;
+display: inline-block;
+text-align: center;
+margin-left: -50px;}
+
+.aboutme {margin-top: 400px;
+text-align: center;}
+
+.images {text-align: center;
+margin-top: -150px;}
+
+h2 {margin-top: -70px;}
+
+h3 {margin-top: 100px;
+margin-left: -900px;}
+
+.me {text-align: center;
+
+display: inline-block;
+margin-top: 400px;}
+
+.furtwangen {font-size: 50pt;}
+
+.keepgoing {margin-bottom: -180px;}
+
+
+
