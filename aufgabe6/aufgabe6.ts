@@ -1,5 +1,9 @@
 const countries = ["Deutschland","Frankreich","Italien","Kroatien"];
 
+const population_eu= [501.10, 751.22];
+const eu= ["Die Bevölkerung der gesamten EU betrug 2010: "+population_eu[0]+"Millionen. Seit 2022 leben in Europa "+population_eu [1]+"Millionen Menschen"];
+console .log(eu);
+
 
 const population_ger= [81.78, 84.10];
 const germany= ["Die Bevölkerung in Deutschland betrug 2010: "+population_ger[0]+" Millionen. Bis 2022 ist die Bevölkerung auf: "+population_ger[1]+" Millionen gestiegen"];
