@@ -20,4 +20,24 @@ for (let i = 0; i < 4; i++) {
     const percentage = ((100 / population_cou[i][j]) * population_cou[i][j + 1]) - 100;
     console.log("Die prozentuale Veränderung von " + countries[i] + " ist: " + parseFloat(percentage.toString()).toFixed(2) + "%");
 }
+const Deutschland = [2.84];
+const Frankreich = [1.57];
+const Italien = [2.28];
+const Kroatien = [-5.12];
+function heading(land, Einwohnerzahl, realtiv) {
+    const überschrift = document.querySelector(".überschrift");
+    überschrift.innerHTML = " Einwohnerzahl " + land;
+    const Einwohner = document.querySelector(".Einwohnerzahl");
+    Einwohner.innerHTML = Einwohnerzahl[1] + " Mio";
+    const prozent = document.querySelector(".relativ");
+    prozent.innerHTML = Deutschland + " %";
+}
+const germ = document.querySelector(".germany");
+germ.addEventListener('click', function () { heading("Deutschland", population_ger, Deutschland); });
+const franc = document.querySelector(".france");
+franc.addEventListener('click', function () { heading("Frankreich", population_fra); });
+const ital = document.querySelector(".italy");
+ital.addEventListener('click', function () { heading("Italien", population_ita); });
+const croati = document.querySelector(".croatia");
+croati.addEventListener('click', function () { heading("Kroatien", population_cro); });
 //# sourceMappingURL=aufgabe6.js.map
