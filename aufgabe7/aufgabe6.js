@@ -32,7 +32,7 @@ for (let i = 0; i < 4; i++) {
     const difference = population_cou[i][j + 1] - population_cou[i][j];
     console.log(difference.toFixed(2) + " Mio");
 }
-function heading(land, Einwohnerzahl, Steigerung, EU, Rate, landname) {
+function click(land, Einwohnerzahl, Steigerung, EU, Rate, landname) {
     const name = document.querySelector(".name");
     name.innerHTML = "Gesamtzahl Einwohnerinnen und Einwohner in " + landname + "in 2022";
     const überschrift = document.querySelector(".überschrift");
@@ -47,13 +47,13 @@ function heading(land, Einwohnerzahl, Steigerung, EU, Rate, landname) {
     Wachstumsrate.innerHTML = Rate[4] + " Mio";
 }
 const euro = document.querySelector(".stars");
-euro.addEventListener('click', function () { heading("Europa", population_eu, population_eu, population_eu, population_eu, " Europa "); });
+euro.addEventListener('click', function () { click("Europa", population_eu, population_eu, population_eu, population_eu, " Europa "); });
 const germ = document.querySelector(".germany");
-germ.addEventListener('click', function () { heading("Deutschland", population_ger, population_ger, population_ger, population_ger, " Deutschland "); });
+germ.addEventListener('click', function () { click("Deutschland", population_ger, population_ger, population_ger, population_ger, " Deutschland "); });
 const franc = document.querySelector(".france");
-franc.addEventListener('click', function () { heading("Frankreich", population_fra, population_fra, population_fra, population_fra, " Frankreich "); });
+franc.addEventListener('click', function () { click("Frankreich", population_fra, population_fra, population_fra, population_fra, " Frankreich "); });
 const ital = document.querySelector(".italy");
-ital.addEventListener('click', function () { heading("Italien", population_ita, population_ita, population_ita, population_ita, " Italien "); });
+ital.addEventListener('click', function () { click("Italien", population_ita, population_ita, population_ita, population_ita, " Italien "); });
 const croati = document.querySelector(".croatia");
-croati.addEventListener('click', function () { heading("Kroatien", population_cro, population_cro, population_cro, population_cro, " Kroatien "); });
+croati.addEventListener('click', function () { click("Kroatien", population_cro, population_cro, population_cro, population_cro, " Kroatien "); });
 //# sourceMappingURL=aufgabe6.js.map

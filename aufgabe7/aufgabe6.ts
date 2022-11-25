@@ -45,7 +45,7 @@ for (let i = 0; i < 4; i++) {
 }
 
 const difference = [population_ger, population_fra, population_ita, population_cro];
-for (let i = 0; i < 4; i++){
+for (let i = 0; i < 4; i++) {
     const j = 0;
 
     const difference = population_cou[i][j + 1] - population_cou[i][j]
@@ -53,10 +53,10 @@ for (let i = 0; i < 4; i++){
 }
 
 
-function heading(land: string, Einwohnerzahl: number[], Steigerung: number[], EU: number[], Rate: number[], landname: string) {
-   
+function click(land: string, Einwohnerzahl: number[], Steigerung: number[], EU: number[], Rate: number[], landname: string) {
+
     const name = document.querySelector(".name") as HTMLParagraphElement
-   name.innerHTML = "Gesamtzahl Einwohnerinnen und Einwohner in " + landname + "in 2022"
+    name.innerHTML = "Gesamtzahl Einwohnerinnen und Einwohner in " + landname + "in 2022"
     const überschrift = document.querySelector(".überschrift") as HTMLHeadingElement
     überschrift.innerHTML = land
     const Einwohner = document.querySelector(".Einwohnerzahl") as HTMLHeadingElement
@@ -67,18 +67,20 @@ function heading(land: string, Einwohnerzahl: number[], Steigerung: number[], EU
     AnteilEu.innerHTML = EU[3] + "%"
     const Wachstumsrate = document.querySelector(".Wachstumsrate") as HTMLHeadingElement
     Wachstumsrate.innerHTML = Rate[4] + " Mio"
+ 
 
 }
 const euro = document.querySelector(".stars") as HTMLImageElement
-euro.addEventListener('click', function() {heading("Europa", population_eu, population_eu, population_eu, population_eu, " Europa ")});
+euro.addEventListener('click', function() {click("Europa", population_eu, population_eu, population_eu, population_eu, " Europa ") });
 const germ = document.querySelector(".germany") as HTMLImageElement
-germ.addEventListener('click', function () { heading("Deutschland", population_ger, population_ger, population_ger, population_ger," Deutschland ") });
+germ.addEventListener('click', function () { click("Deutschland", population_ger, population_ger, population_ger, population_ger, " Deutschland ") });
 
 const franc = document.querySelector(".france") as HTMLHeadingElement
-franc.addEventListener('click', function () { heading("Frankreich", population_fra, population_fra, population_fra, population_fra, " Frankreich ") });
+franc.addEventListener('click', function () { click("Frankreich", population_fra, population_fra, population_fra, population_fra, " Frankreich ") });
 
 const ital = document.querySelector(".italy") as HTMLHeadingElement
-ital.addEventListener('click', function () { heading("Italien", population_ita, population_ita, population_ita, population_ita, " Italien ") });
+ital.addEventListener('click', function () { click("Italien", population_ita, population_ita, population_ita, population_ita, " Italien ") });
 
 const croati = document.querySelector(".croatia") as HTMLHeadingElement
-croati.addEventListener('click', function () { heading("Kroatien", population_cro, population_cro, population_cro, population_cro, " Kroatien ") });
+croati.addEventListener('click', function () { click("Kroatien", population_cro, population_cro, population_cro, population_cro, " Kroatien ") });
+

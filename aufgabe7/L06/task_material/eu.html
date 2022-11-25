@@ -12,6 +12,7 @@
 
 <body>
     <nav>
+        <div id="mydiv">
         <div class="row">
             <div class="wrapper">
                 <img src="images/germany.png" height="76px" class="germany">
@@ -126,13 +127,32 @@
                 <h5>Schweden</h5>
             </div>
         </div>
+        </div>
     </nav>
-    <a class="stars" href="eu.html"><img src="images/eu_stars.png" alt="sterne" height="120px" width="120px"></a>  
-    <h1 class="überschrift">
-        Einwohnerzahl in der europäischen Union
-    </h1>
+    <script>const selected= document.getElementsByClassName("mydiv");
+    const landscape = selected.getElementsByClassName("wrapper");
+    for (var i=0; i < landscape.length; i++){
+    landscape[i].addEventListener("click", function (){const curent= document.getElementsByClassName("active");
+    current[0].className =
+    current[0].className.replace("active", "");
+    this.className += " active";});}
+    </script>
+
 
     <main>
+        <div class="chartStarWrapper">
+            <img src="images/eu_stars.png" class="stars">
+            
+           <div class="chartWrapper">
+                <div class="chart"></div>
+            </div>
+
+        </div>
+
+        <h1 class="überschrift">
+            Europa
+        </h1>
+
         <section>
             <h2 class="Einwohnerzahl">751.22Mio</h2>
             <p class="name">Gesamtzahl Einwohnerinnen und Einwohner in Europa in 2022</p>
