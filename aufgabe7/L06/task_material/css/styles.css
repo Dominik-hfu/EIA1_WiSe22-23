@@ -1,29 +1,20 @@
 html,
 body {
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: rgb(127, 136, 139);
     text-align: center;
-    background: linear-gradient(to bottom right, #0b51dd 0%, #001847 100%);
+    background: linear-gradient(to bottom right, #06003f 0%, #06003f     100%);
 }
 .wrapper{   display: inline-block;
     opacity: .5;
     transition: all .3s;}
-.wrapper::before {
-    display: inline-block;
-    opacity: .5;
-    transition: all .3s;
-    content: '';
-}
+
 .active, .wrapper:hover{
-    transform: scale(1.1);
-    opacity: 1;
     background-color: #ffcc00;
-    box-shadow: 0 0 26px 1px#ffff00;
-}
-/* .wrapper:hover, .wrapper.active {
-    transform: scale(1.1);
+    box-shadow: 0 0 26px 3px #ffcc00;
+    border-radius: 10%;
     opacity: 1;
-} */
+}
 
 .row {
     display: flex;
@@ -32,6 +23,10 @@ body {
 
 .stars {
     width: 150px;
+}
+
+.active:hover{
+    rotate: 360deg;
 }
 
 nav {
@@ -55,8 +50,9 @@ footer p {
     display: inline-block;
     width: 50px;
     height: 140px;
-    background: #ffffff80;
+    background: #00000080;
     margin-left: 50px;
+    border-radius: 10%;
 }
 .chartWrapper .chart {
     position: absolute;
@@ -64,4 +60,11 @@ footer p {
     width: 100%;
     height: 75%;
     background: #ffcc00;
+    box-shadow: 0 0 15px 3px #ffcc00;
+    border-radius: 10%;
 }
+.überschrift{color: #ffcc00;
+    box-shadow: 0 0 15px 3px #ffcc00;
+left: 500px;
+right: 500px;
+position: absolute;}
