@@ -14,7 +14,7 @@
     <nav>
         <div id="mydiv">
         <div class="row">
-            <div class="wrapper">
+            <div class="wrapper active">
                 <img src="images/germany.png" height="76px" class="germany">
                 <h5>Deutschland</h5>
             </div>
@@ -129,14 +129,19 @@
         </div>
         </div>
     </nav>
-    <script>const selected= document.getElementsByClassName("mydiv");
-    const landscape = selected.getElementsByClassName("wrapper");
+    <script>var header= document.getElementById("mydiv");
+    var landscape = header.getElementsByClassName("wrapper");
     for (var i=0; i < landscape.length; i++){
-    landscape[i].addEventListener("click", function (){const curent= document.getElementsByClassName("active");
+    landscape[i].addEventListener("click",
+    function (){
+        var current =
+        document.getElementsByClassName("active");
     current[0].className =
     current[0].className.replace("active", "");
-    this.className += " active";});}
+    this.className += " active";});
+}
     </script>
+    
 
 
     <main>
@@ -152,7 +157,9 @@
         <h1 class="überschrift">
             Europa
         </h1>
-
+<br>
+<br>
+<br>
         <section>
             <h2 class="Einwohnerzahl">751.22Mio</h2>
             <p class="name">Gesamtzahl Einwohnerinnen und Einwohner in Europa in 2022</p>

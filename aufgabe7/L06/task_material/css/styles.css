@@ -49,12 +49,12 @@ footer p {
     position: relative;
     display: inline-block;
     width: 50px;
-    height: 140px;
+    height: 100px;
     background: #00000080;
     margin-left: 50px;
     border-radius: 10%;
 }
-.chartWrapper .chart {
+.chartWrapper .chart{
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -63,6 +63,7 @@ footer p {
     box-shadow: 0 0 15px 3px #ffcc00;
     border-radius: 10%;
 }
+
 .überschrift{color: #ffcc00;
     box-shadow: 0 0 15px 3px #ffcc00;
 left: 500px;
