@@ -1,0 +1,97 @@
+body{background-color: black;}
+
+#buttons{
+    margin:auto;
+    width: 500px;
+    position: relative;
+    top:50%;
+    transform: translateY(50%);
+    background-color:black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+/* .buttons:hover{background-color: red;} hover
+farben als hexa werte*/
+#buttonA{
+    margin-bottom: 25px;
+    height: 100px;
+    width: 150px;
+    border-radius: 10%;
+    background-color: aqua;
+    box-shadow: 0 0 15px 3px aqua;
+    border: 0px;}
+#buttonB{
+    margin-bottom: 25px;
+    height: 100px;
+    width: 150px;
+    border-radius: 10%;
+    background-color: crimson;
+    box-shadow: 0 0 15px 3px crimson;
+    border: 0px;
+}
+#buttonC{
+    height: 100px;
+    margin-bottom: 25px;
+    width: 150px;
+    border-radius: 10%;
+    background-color: mediumaquamarine;
+    box-shadow: 0 0 15px 3px mediumaquamarine;
+    border: 0px;
+}
+#buttonD{
+    margin-bottom: 25px;
+    height: 100px;
+    width: 150px;
+    border-radius: 10%;
+    background-color: deeppink;
+    box-shadow: 0 0 15px 3px deeppink;
+    border: 0px;
+}
+#buttonE{
+    margin-bottom: 25px;
+    height: 100px;
+    width: 150px;
+    border-radius: 10%;
+    background-color: mediumspringgreen;
+    box-shadow: 0 0 15px 3px mediumspringgreen ;
+    border: 0px;
+}
+#buttonF{
+    margin-bottom: 25px;
+    height: 100px;
+    width: 150px;
+    border-radius: 10%;
+    background-color: yellow;
+    box-shadow: 0 0 15px 3px yellow;
+    border: 0px;
+}
+#buttonG{
+    height: 100px;
+    width: 150px;
+    border-radius: 10%;
+    background-color: green;
+    box-shadow: 0 0 15px 3px green;
+    border: 0px;
+}
+#buttonH{
+    height: 100px;
+    width: 150px;
+    border-radius: 10%;
+    background-color: red;
+    box-shadow: 0 0 15px 3px red;
+    border: 0px;
+}
+#buttonI{
+    height: 100px;
+    width: 150px;
+    border-radius: 10%;
+    background-color: white;
+    box-shadow: 0 0 15px 3px white;
+    border: 0px;
+}
+/* poistion */
+.play{
+    margin-left: 0px;
+
+}
