@@ -1,4 +1,4 @@
-body{background-color: black;}
+body{background-image: url(hd-wallpaper-g24b58479e_1280.jpg);}
 
 #buttons{
     margin:auto;
@@ -6,28 +6,30 @@ body{background-color: black;}
     position: relative;
     top:50%;
     transform: translateY(50%);
-    background-color:black;
+    background:none;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    opacity: 0.8;
 }
-/* .buttons:hover{background-color: red;} hover
-farben als hexa werte*/
+.fade:hover, .play:hover{opacity: 1;}
+.fade, .play{opacity: 0.5;}
 #buttonA{
     margin-bottom: 25px;
     height: 100px;
     width: 150px;
     border-radius: 10%;
-    background-color: aqua;
-    box-shadow: 0 0 15px 3px aqua;
-    border: 0px;}
+    background-color: #00ffbb;
+    box-shadow: 0 0 100px 3px #00ffbb;
+    border: 0px;
+    }
 #buttonB{
     margin-bottom: 25px;
     height: 100px;
     width: 150px;
     border-radius: 10%;
-    background-color: crimson;
-    box-shadow: 0 0 15px 3px crimson;
+    background-color: #ff0055;
+    box-shadow: 0 0 100px 3px #ff0055;
     border: 0px;
 }
 #buttonC{
@@ -35,8 +37,8 @@ farben als hexa werte*/
     margin-bottom: 25px;
     width: 150px;
     border-radius: 10%;
-    background-color: mediumaquamarine;
-    box-shadow: 0 0 15px 3px mediumaquamarine;
+    background-color: #00ffbb;
+    box-shadow: 0 0 100px 3px #00ffbb;
     border: 0px;
 }
 #buttonD{
@@ -44,8 +46,8 @@ farben als hexa werte*/
     height: 100px;
     width: 150px;
     border-radius: 10%;
-    background-color: deeppink;
-    box-shadow: 0 0 15px 3px deeppink;
+    background-color: #ff0055;
+    box-shadow: 0 0 100px 3px #ff0055;
     border: 0px;
 }
 #buttonE{
@@ -53,8 +55,8 @@ farben als hexa werte*/
     height: 100px;
     width: 150px;
     border-radius: 10%;
-    background-color: mediumspringgreen;
-    box-shadow: 0 0 15px 3px mediumspringgreen ;
+    background-color: #00ffbb;
+    box-shadow: 0 0 100px 3px #00ffbb;
     border: 0px;
 }
 #buttonF{
@@ -62,36 +64,39 @@ farben als hexa werte*/
     height: 100px;
     width: 150px;
     border-radius: 10%;
-    background-color: yellow;
-    box-shadow: 0 0 15px 3px yellow;
+    background-color: #ff0055;
+    box-shadow: 0 0 100px 3px #ff0055;
     border: 0px;
 }
 #buttonG{
     height: 100px;
     width: 150px;
     border-radius: 10%;
-    background-color: green;
-    box-shadow: 0 0 15px 3px green;
+    background-color: #00ffbb;
+    box-shadow: 0 0 100px 3px #00ffbb;
     border: 0px;
 }
 #buttonH{
     height: 100px;
     width: 150px;
     border-radius: 10%;
-    background-color: red;
-    box-shadow: 0 0 15px 3px red;
+    background-color: #ff0055;
+    box-shadow: 0 0 100px 3px #ff0055;
     border: 0px;
 }
 #buttonI{
     height: 100px;
     width: 150px;
     border-radius: 10%;
-    background-color: white;
-    box-shadow: 0 0 15px 3px white;
+    background-color: #00ffbb;
+    box-shadow: 0 0 100px 3px #00ffbb;
     border: 0px;
 }
-/* poistion */
-.play{
-    margin-left: 0px;
 
+.play{
+    height: 150px;
+    position: relative;
+    margin: auto;
+    display: flex;
+    transform: translateY(120%);
 }

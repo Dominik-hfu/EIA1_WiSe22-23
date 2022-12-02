@@ -48,11 +48,12 @@ playbutton.addEventListener("click", function(){
 
 setInterval(function() {playSample(new Audio(array[i]))
  i++ 
- if (i== 8) {i= 0}
+ if (i== 3) {i= 0}
  }, 500);
  var i= 0
 })
 
-var array= ["A.mp3", "C.mp3", "F.mp3", "G.mp3", "hihat.mp3", "kick.mp3", "laugh-1.mp3", "laugh-2.mp3", "snare.mp3"]
+var array= ["kick.mp3", "snare.mp3", "hihat.mp3"]
 
 function playSample(ton: any) { ton.play(); }
+
