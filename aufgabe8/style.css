@@ -10,10 +10,12 @@ body{background-image: url(hd-wallpaper-g24b58479e_1280.jpg);}
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    opacity: 0.8;
+   
 }
-.fade:hover, .play:hover{opacity: 1;}
-.fade, .play{opacity: 0.5;}
+    
+.fade:hover{opacity: 0.5;}
+
+
 #buttonA{
     margin-bottom: 25px;
     height: 100px;
@@ -99,4 +101,18 @@ body{background-image: url(hd-wallpaper-g24b58479e_1280.jpg);}
     margin: auto;
     display: flex;
     transform: translateY(120%);
+    margin-left: 500px;
+justify-content: space-between;
+    opacity: 1;
+
 }
+
+.shuffle{
+
+    margin-right: 500px;
+}
+
+#go:hover{color: #ff0055;}
+#shuffle:hover{color: #ff0055;}
+
+

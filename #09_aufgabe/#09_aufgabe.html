@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta name="generator" content="olat-tinymce-4" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title></head><body><h2 id="a--aufgabe-08">#09 Aufgabe&nbsp;</h2>
+<p>Entsprechend der Variante, f&uuml;r die Sie sich in der letzten Aufgabe entschieden haben, sollen folgende Features erweitert werden:</p>
+<hr />
+<h3 id="drum-pad-ii"><strong>Drum Pad II</strong></h3>
+<p>Voraussetzung f&uuml;r diese Aufgabe ist das Grundger&uuml;st des Drum Pads aus Aufgabe 8. F&uuml;r Aufgabe 9 also bitte erst einmal eine Kopie von Aufgabe 8 anlegen, an der nun weitergearbeitet werden kann.</p>
+<p>Das Drum-Pad soll jetzt mit mehreren Features erweitert werden:</p>
+<ol>
+<li>Ein Linter soll das Projekt bei der Entwicklung &uuml;berpr&uuml;fen. Setzen Sie daf&uuml;r das Regelwerk des Linter (die Datei tslint.json, siehe Links zum Video) in Ihren Projektordner und installieren Sie sich per Terminal das Node-Modul TSLinter:
+<div class="language-bash highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>npm&nbsp;<span class="nb">install&nbsp;</span>typescript tslint&nbsp;<span class="nt">-g</span><br /><br /><span class="c"># Anmerkung:&nbsp;wenn Adminrechte ben&ouml;tigt werden (unter Mac und Linux):</span>&nbsp;<span class="nb">sudo&nbsp;</span>npm&nbsp;<span class="nb">install&nbsp;</span>typescript tslint&nbsp;<span class="nt">-g</span></code></pre>
+</div>
+</div>
+<p>Als letzten Schritt m&uuml;ssen Sie f&uuml;r den Linter in VSC die TSLint Extension installieren.</p>
+</li>
+<li>
+<p>Der Beat soll als Loop, also wiederholend, abspielen.</p>
+</li>
+<li>
+<p>Der Play-Button soll erweitert werden: bei Klick auf Play, soll sich der Button zu einem Stop-Button verwandeln. Bei Klick auf Stop soll wieder der Play-Button in Funktion und Darstellung abgebildet sein.</p>
+</li>
+<li>
+<p>Folgende Anforderung f&uuml;r Ihre Code-Struktur: (a) das Abspielen eines Samples soll von einer zentralen Funktion ausgef&uuml;hrt werden. In Ihrem Code darf also nur&nbsp;<strong>einmal</strong>&nbsp;die Anweisung&nbsp;<strong>.play()</strong>&nbsp;auftauchen. (b) F&uuml;r das Abspielen eines Beats soll nur&nbsp;<strong>ein</strong>&nbsp;Array manipuliert werden.</p>
+</li>
+<li>Eine visuelle Anforderung: f&uuml;r die Darstellung der Buttons (Play/Stop) sollen&nbsp;<strong>keine</strong>&nbsp;Grafiken eingesetzt werden, stattdessen werden Sie die Icons aus einer Icon-Font einbinden. Sehen Sie sich dazu das Beispiel&nbsp;<a href="https://github.com/gabriel-rausch/EIA1-Material/tree/master/L09/task_material" target="_blank" rel="noopener">example-icon-fonts.html</a>&nbsp;an und &uuml;bertragen Sie die entsprechenden Fragemente in Ihre Anwendung.</li>
+<li>
+<p>Ein "Remix"-Button soll folgende Funktion bieten: klick&nbsp;der Nutzer den Remix-Button, dann soll der bestehen Beat verworfen werden und stattdessen ein neuer, zuf&auml;llig vom Computer generierter Beat entstehen.<br />Kleiner Tipp: eine&nbsp;M&ouml;glichkeit, um eine zuf&auml;llige Zahlen zu generieren oder Zahlen runden haben Sie schon kennen&nbsp;gelernt:</p>
+<div class="language-bash highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>Math.random() // erzeugt eine (quasi) Zufallszahl&nbsp;<br />Math.round() // eine einfache Art um eine&nbsp;Gleitkommazahl zu einer&nbsp;Ganzzahl zu runden<br /></code></pre>
+</div>
+</div>
+</li>
+</ol>
+<p><strong>Optionale Zusatzaufgabe (wenn Grundaufgabe&nbsp;erf&uuml;llt wurde, dann gibt es daf&uuml;r ein Sternchen)</strong></p>
+<p>Ein Record-Button soll erm&ouml;glichen, das man einen Beat aufnimmt. Sobald der Record-Button geklickt wurde, soll folgende Aktion bei Klick eines Pads ausgef&uuml;hrt werden: der entsprechende Sound des Pads wird abgespielt (wie gehabt) plus das entsprechende Sample wird in den Beat-Loop aufgenommen. D.h. wenn sp&auml;ter der Play-Button geklickt wird, dann soll der neu definierte Beat abspielen.</p>
+<hr />
+<h3><strong>Keyboard II</strong></h3>
+<p>Voraussetzung f&uuml;r diese Aufgabe ist das Grundger&uuml;st des Keyboards/Drum Pads aus Aufgabe 8. F&uuml;r Aufgabe 9 also bitte erst einmal eine Kopie von Aufgabe 8 anlegen, an der nun weitergearbeitet werden kann.</p>
+<p>Das Keyboard soll jetzt mit mehreren Features erweitert werden:</p>
+<ol>
+<li>Ein Linter soll das Projekt bei der Entwicklung &uuml;berpr&uuml;fen. Setzen Sie daf&uuml;r das Regelwerk des Linter (die Datei tslint.json, siehe Links zum Video) in Ihren Projektordner und installieren Sie sich per Terminal das Node-Modul TSLinter:
+<div class="language-bash highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>npm&nbsp;<span class="nb">install&nbsp;</span>typescript tslint&nbsp;<span class="nt">-g</span><br /><br /><span class="c"># Anmerkung:&nbsp;wenn Adminrechte ben&ouml;tigt werden (unter Mac und Linux):</span>&nbsp;<span class="nb">sudo&nbsp;</span>npm&nbsp;<span class="nb">install&nbsp;</span>typescript tslint&nbsp;<span class="nt">-g</span></code></pre>
+</div>
+</div>
+<p>Als&nbsp;letzten Schritt m&uuml;ssen Sie f&uuml;r den Linter in VSC die TSLint Extension installieren.</p>
+</li>
+<li>Die Tonfolge soll als Loop, also wiederholend, abspielen.</li>
+<li>Der Play-Button soll erweitert werden: bei Klick auf Play, soll die Tonfolge abspielen und sich der Button zu einem Stop-Button verwandeln. Bei Klick auf Stop soll die Tonfolge nicht mehr zu h&ouml;ren sein und wieder der Play-Button in Funktion und Darstellung abgebildet sein.</li>
+<li>Folgende Anforderung f&uuml;r Ihre Code-Struktur: (a) das Abspielen eines Tons soll von einer zentralen Funktion ausgef&uuml;hrt werden. In Ihrem Code darf also nur&nbsp;<strong>einmal</strong>&nbsp;die Anweisung&nbsp;<strong>.play()</strong>&nbsp;auftrauchen. (b) F&uuml;r das Abspielen einer Tonfolge soll nur&nbsp;<strong>ein</strong>&nbsp;Array manipuliert werden.</li>
+<li>Eine visuelle Anforderung: f&uuml;r die Darstellung der Buttons (Play/Stop) sollen&nbsp;<strong>keine</strong>&nbsp;Grafiken eingesetzt werden, stattdessen werden Sie die Icons aus einer Icon-Font einbinden. Sehen Sie sich dazu das Beispiel&nbsp;<a href="https://github.com/gabriel-rausch/EIA1-Material/tree/master/L09/task_material" target="_blank" rel="noopener">example-icon-fonts.html</a>&nbsp;an und &uuml;bertragen Sie die entsprechenden Fragemente in Ihre Anwendung.</li>
+<li>Ein "Remix"-Button soll folgende Funktion bieten: klick&nbsp;der Nutzer den Remix-Button, dann soll die bestehende Tonfolge verworfen werden und stattdessen eine neue, zuf&auml;llig vom Computer generierter Tonfolge entstehen.<br />Kleiner Tipp: eine&nbsp;M&ouml;glichkeit, um eine zuf&auml;llige Zahlen zu generieren oder Zahlen runden haben Sie schon kennengelernt:</li>
+</ol>
+<div class="language-bash highlighter-rouge">
+<div class="highlight">
+<pre class="highlight"><code>Math.random() // erzeugt eine (quasi) Zufallszahl&nbsp;<br />Math.round() // eine einfache Art um eine&nbsp;Gleitkommazahl zu einer&nbsp;Ganzzahl zu runden<br /></code></pre>
+</div>
+</div>
+<p><strong>Optionale&nbsp;</strong><strong>Zusatzaufgabe (wenn Grundaufgabe&nbsp;erf&uuml;llt wurde, dann gibt es daf&uuml;r ein Sternchen)</strong></p>
+<p>Ein Record-Button soll erm&ouml;glichen, das man eine Tonfolge aufnimmt. Sobald der Record-Button geklickt wurde, soll folgende Aktion bei Klick eine Keyboard-Taste ausgef&uuml;hrt werden: der entsprechende Ton wird abgespielt (wie gehabt) plus der entsprechende Ton wird in die Tonfolge aufgenommen. D.h. wenn sp&auml;ter der Play-Button geklickt wird, dann soll die neu definierte Tonfolge abspielen.</p>
+<h2 id="abgabe-bis-sonntag-13-dezember-um-1800-uhr">Abgabe bis Sonntag, 11. Dezember um 23:59 Uhr</h2></body></html>
