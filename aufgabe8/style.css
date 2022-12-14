@@ -102,7 +102,7 @@ body{background-image: url(hd-wallpaper-g24b58479e_1280.jpg);}
     display: flex;
     transform: translateY(120%);
     margin-left: 500px;
-justify-content: space-between;
+    justify-content: space-between;
     opacity: 1;
 
 }

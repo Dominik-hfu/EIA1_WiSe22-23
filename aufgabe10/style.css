@@ -1,0 +1,23 @@
+body{background-color: gray;}
+
+.heading{font-size: 80px;
+    margin-left: 500px;
+    margin-right: 200px}
+
+.total{font-size: 20px;
+        margin-left: 500px;
+        margin-right: 500px;}
+
+.dos{box-shadow: 0 0 3px 10px coral;
+    height: 10px;
+    position: relative;
+    transform: translateY(120%);
+    margin-left: 500px;
+    margin-right: 500px;
+    padding: 50px;
+}
+
+.check{color: aqua;
+}
+
+.bin{color: red;}
