@@ -5,19 +5,38 @@ body{background-color: gray;}
     margin-right: 200px}
 
 .total{font-size: 20px;
-        margin-left: 500px;
-        margin-right: 500px;}
+    margin: auto;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    opacity: 0.5;}
 
-.dos{box-shadow: 0 0 3px 10px coral;
-    height: 10px;
-    position: relative;
-    transform: translateY(120%);
+.todos{
+    box-shadow: 0 0 3px 10px black;
+    margin: auto;
+    justify-content: center;
     margin-left: 500px;
     margin-right: 500px;
-    padding: 50px;
+    padding: 60px;
 }
 
-.check{color: aqua;
+.circle{
+    color: black;
 }
 
-.bin{color: red;}
+.paragraph {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bin{
+    color: black;
+}
+
+
+
+.text{border: 10px;
+box-shadow: 0 0 3px 5px black;
+margin-left: 600px;
+transform: translateY(200%);}
