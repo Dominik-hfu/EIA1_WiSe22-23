@@ -11,6 +11,8 @@ body{background-color: gray;}
     justify-content: center;
     opacity: 0.5;}
 
+/* .do{box-shadow: 0 0 3px 10px black;} */
+
 .todos{
     box-shadow: 0 0 3px 10px black;
     margin: auto;
