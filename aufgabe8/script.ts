@@ -48,6 +48,7 @@ let i = 0
 let clicked=0
 let shuffel_is_clicked=false
 let zufallbeat=[]
+
 function play_alg(){
 
     playbutton.classList.remove("active");
