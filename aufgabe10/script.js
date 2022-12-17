@@ -1,6 +1,5 @@
-let text = document.querySelector(".text");
-let todos = document.querySelector(".todos");
-// let termine = document.querySelector("do") as HTMLDivElement;
+let text = document.querySelector(".inputbox");
+let todos = document.querySelector(".bigbox");
 let i = 0;
 text.addEventListener("keypress", function (ev) {
     if (ev.key == "Enter" && text.value != "") {
@@ -9,7 +8,7 @@ text.addEventListener("keypress", function (ev) {
         anzahl.innerHTML = i + " in total";
         const zeile = document.createElement("p");
         zeile.innerText = text.value;
-        zeile.classList.add("paragraph", "do");
+        zeile.classList.add("paragraph", "box");
         todos.prepend(zeile);
         const bin = document.createElement("p");
         bin.classList.add("bin", "fa-solid", "fa-trash", "fa-2x");
@@ -17,11 +16,11 @@ text.addEventListener("keypress", function (ev) {
             i -= 1;
             let anzahl = document.querySelector(".total");
             anzahl.innerHTML = i + " in total";
-            circle.classList.remove("fa-regular", "fa-circle", "fa-2x", "circle");
-            bin.classList.remove("bin", "fa-solid", "fa-trash", "fa-2x");
-            todos.classList.remove("todos");
-            // termine.classList.remove("do", "paragraph", "todos");
-            // todos.classList.remove("todos");
+            circle.remove();
+            bin.remove();
+            // circle.classList.remove("fa-regular", "fa-circle", "fa-2x", "circle");
+            // bin.classList.remove("bin", "fa-solid", "fa-trash", "fa-2x");
+            zeile.remove();
         });
         zeile.append(bin);
         const circle = document.createElement("p");
@@ -34,9 +33,6 @@ text.addEventListener("keypress", function (ev) {
         text.value = "";
     }
 });
-// text löschen
-// alle löschen
-// format behalten
 // stylen
 // evtl effekte beim löschen
 //# sourceMappingURL=script.js.map
