@@ -12,6 +12,14 @@ body {
     text-shadow: 0 0 1em goldenrod, 0 0 0.2em goldenrod;
 }
 
+.count {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+
+
+}
+
 .total {
     font-size: 20px;
     display: flex;
@@ -20,6 +28,25 @@ body {
     color: black;
     text-shadow: 0 0 1em goldenrod, 0 0 1em goldenrod;
 
+}
+
+.open {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    opacity: 0.5;
+    color: black;
+    text-shadow: 0 0 1em goldenrod,
+        0 0 1em goldenrod;
+}
+
+.done {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    opacity: 0.5;
+    color: black;
+    text-shadow: 0 0 1em goldenrod, 0 0 1em goldenrod;
 }
 
 .bigbox {
@@ -72,6 +99,10 @@ body {
     color: black;
 }
 
+.tick {
+    color: black;
+}
+
 .bin {
     color: black;
     opacity: 0;
@@ -79,4 +110,13 @@ body {
 
 .bin:hover {
     opacity: 1;
+}
+
+.alert {
+    width: 700px;
+    height: 100px;
+    transform: translateY(420%);
+    margin-left: 380px;
+    color: #a00000;
+    text-shadow: 0 0 1em #a00000;
 }
