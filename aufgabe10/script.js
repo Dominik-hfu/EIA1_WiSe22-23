@@ -38,7 +38,6 @@ text.addEventListener("keypress", function (ev) {
         });
         zeile.append(bin);
         let circle = document.createElement("p");
-        let tick = document.createElement("p");
         let clicked = 0;
         circle.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
         circle.onclick = function click() {

@@ -47,7 +47,6 @@ text.addEventListener("keypress", function (ev: KeyboardEvent) {
         zeile.append(bin);
 
         let circle = document.createElement("p");
-        let tick = document.createElement("p");
         let clicked = 0
 
         circle.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
@@ -83,6 +82,7 @@ text.addEventListener("keypress", function (ev: KeyboardEvent) {
 
 
 console.timeEnd();
+
 
 
 
