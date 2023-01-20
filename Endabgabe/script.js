@@ -1,7 +1,4 @@
-// let button1 = document.querySelector("#html") as HTMLButtonElement;
-// let button2 = document.querySelector("#css") as HTMLButtonElement;
-// let button3 = document.querySelector("#typescript") as HTMLButtonElement;
-// let button4 = document.querySelector("#gemischt") as HTMLButtonElement;
+let answer = [];
 let htmlquiz = [{
         question: " Was heißt HTML? ",
         answer: [" Hypertext markup language ", " Hypertext makeup language ", " Hypertext markup linguini "],
@@ -38,8 +35,8 @@ let htmlquiz = [{
         correct: true
     }];
 let cssquiz = [{
-        question: "Was heißt CSS?",
-        answer: ["Cascading styling software", "Cascading style sheets", "Cascading super style"],
+        question: " Was heißt CSS? ",
+        answer: [" Cascading style sheets ", " Cascading styling software ", " Cascading super style "],
         correct: true
     },
     {
@@ -107,79 +104,58 @@ let typescriptquiz = [{
         answer: [" Inhalte ", " Events ", " Dominik "],
         correct: true
     }];
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-// Shuffle Fragen  
-let i = 0;
-document.querySelector("#html").addEventListener("click", function () {
-    let frage = htmlquiz[0];
-    let newinhalt = document.querySelector("#inhalt");
-    newinhalt.innerHTML = "";
-    let fragetext = document.createElement("h2");
-    newinhalt.appendChild(fragetext);
-    fragetext.innerHTML = frage.question;
-    let antwort = document.createElement("p");
-    antwort.innerHTML = frage.answer[0];
-    newinhalt.appendChild(antwort);
-    let punktestand = document.createElement("p");
-    punktestand.classList.add("punktestand");
-    punktestand.innerHTML = " Punktestand: " + i;
-    newinhalt.appendChild(punktestand);
-});
-document.querySelector("#css").addEventListener("click", function () {
-    let frage = cssquiz[0];
-    let newinhalt = document.querySelector("#inhalt");
-    newinhalt.innerHTML = "";
-    let fragetext = document.createElement("h2");
-    newinhalt.appendChild(fragetext);
-    fragetext.innerHTML = frage.question;
-    let antwort = document.createElement("p");
-    antwort.innerHTML = frage.answer[0];
-    newinhalt.appendChild(antwort);
-    let punktestand = document.createElement("p");
-    punktestand.classList.add("punktestand");
-    punktestand.innerHTML = " Punktestand: " + i;
-    newinhalt.appendChild(punktestand);
-});
-document.querySelector("#typescript").addEventListener("click", function () {
-    let frage = typescriptquiz[0];
-    let newinhalt = document.querySelector("#inhalt");
-    newinhalt.innerHTML = "";
-    let fragetext = document.createElement("h2");
-    newinhalt.appendChild(fragetext);
-    fragetext.innerHTML = frage.question;
-    let antwort = document.createElement("p");
-    antwort.innerHTML = frage.answer[0];
-    newinhalt.appendChild(antwort);
-    let punktestand = document.createElement("p");
-    punktestand.classList.add("punktestand");
-    punktestand.innerHTML = " Punktestand: " + i;
-    newinhalt.appendChild(punktestand);
-});
 let gemischtquiz = [{
         question: " gemischte Fragen ",
         answer: [" gemischte Antworten "],
         correct: true
     }];
-document.querySelector("#gemischt").addEventListener("click", function () {
-    let frage = gemischtquiz[0];
+let i = 0;
+function Aufgabenstellung(frage, antwort) {
     let newinhalt = document.querySelector("#inhalt");
     newinhalt.innerHTML = "";
     let fragetext = document.createElement("h2");
+    fragetext.classList.add("frage");
     newinhalt.appendChild(fragetext);
     fragetext.innerHTML = frage.question;
-    let antwort = document.createElement("p");
-    antwort.innerHTML = frage.answer[0];
-    newinhalt.appendChild(antwort);
+    let antwortmöglichkeiten = 2;
+    answer = [];
+    for (let index = 0; index <= antwortmöglichkeiten; index++) {
+        let Zufallsantwort = Math.floor(Math.random() * 3);
+        answer[index] = answer[Zufallsantwort];
+        let Antworten = document.createElement("p");
+        Antworten.classList.add("antwort");
+        Antworten.innerHTML = antwort.answer[Zufallsantwort];
+        newinhalt.appendChild(Antworten);
+        console.log(answer);
+    }
+    // jede antwort nur einmal!!!
     let punktestand = document.createElement("p");
     punktestand.classList.add("punktestand");
     punktestand.innerHTML = " Punktestand: " + i;
     newinhalt.appendChild(punktestand);
+    let next = document.createElement("button");
+    next.classList.add("next");
+    next.innerHTML = " Weiter ";
+    newinhalt.appendChild(next);
+}
+document.querySelector("#html").addEventListener("click", function () {
+    let frage = htmlquiz[0];
+    let antwort = htmlquiz[0];
+    Aufgabenstellung(frage, antwort);
 });
-// Dom ändern durch klicken auf HTML Button zu Frage und Antwortmöglichkeiten
+document.querySelector("#css").addEventListener("click", function () {
+    let frage = cssquiz[0];
+    let antwort = cssquiz[0];
+    Aufgabenstellung(frage, antwort);
+});
+document.querySelector("#typescript").addEventListener("click", function () {
+    let frage = typescriptquiz[0];
+    let antwort = typescriptquiz[0];
+    Aufgabenstellung(frage, antwort);
+});
+document.querySelector("#gemischt").addEventListener("click", function () {
+    let frage = gemischtquiz[0];
+    let antwort = gemischtquiz[0];
+    Aufgabenstellung(frage, antwort);
+});
 //# sourceMappingURL=script.js.map
