@@ -83,6 +83,14 @@ h2 {
     justify-content: center;
 }
 
+.circle{
+    color: black;
+}
+
+.tick{
+    color: black;
+}
+
 .next{
     color: #00ffbb;
     width: 100px;

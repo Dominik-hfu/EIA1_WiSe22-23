@@ -1,170 +1,147 @@
 interface question {
     question: string;
     answer: string[];
-    correct: boolean;
+    correct: boolean[];
 }
 
-let answer=[];
+let answer = [];
+let correct=[];
 
 let htmlquiz: question[] = [{
     question: " Was heißt HTML? ",
     answer: [" Hypertext markup language ", " Hypertext makeup language ", " Hypertext markup linguini "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
+
 {
     question: " Was ist HTML? ",
     answer: [" Auszeichnungssprache ", " Fremdsprache ", " Zeichensprache "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 
 },
 {
     question: " HTML beeinhaltet: ",
     answer: [" Tags ", " Nachts ", " Mittags "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 
 },
 {
     question: " Wo wird HTML interpretiert und gerendert? ",
     answer: [" Browser ", " Peach ", " Yoshi "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Wie wird die Strukturierung der DOM Inhalte genannt? ",
     answer: [" DOM-Tree ", " DOM-INIK ", " DOM-Flower "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Für was steht UTF-8? ",
     answer: [" Zeichensatz ", " Sprache ", " Lesereihenfolge "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Ein HTML Dokument enthält: ",
     answer: [" Head ", " Shoulder ", " Knees "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 }];
 
 
 let cssquiz: question[] = [{
     question: " Was heißt CSS? ",
     answer: [" Cascading style sheets ", " Cascading styling software ", " Cascading super style "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Bei welchem der Begriffe, handelt es sich um eine Selektor Art? ",
     answer: [" Class ", " Group ", " Set "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Welches Verhalten gibt es in CSS? ",
     answer: [" Flussverhalten ", " Meerverhalten ", " Seeverhalten "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Welcher Einheit dient der Layout Anpassung? ",
     answer: [" px ", " kcal ", " nm "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Was heißt Responsive? ",
     answer: [" stufenlos ", " stufenweise ", " aussichtslos "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Wie wird eine CSS Eigenschaft eingebunden? ",
     answer: [" extern ", " inline ", " intern "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " In CSS werden Eigenschaften : ",
     answer: ["vererbt ", " verheiratet ", " verschlafen "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 }];
 
 
 let typescriptquiz: question[] = [{
     question: "Für was wird Typescript benötigt?",
     answer: [" Interaktive Anwendungen ", " Statische Anwendungen ", " Braucht man eigentlich gar nicht "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Welche Klammer umschließt eine Funktion? ",
     answer: [" {} ", " () ", " [] "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Was ist ein Array? ",
     answer: [" Eine Liste ", " Eine Tabelle ", " Eine Rechnung "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Wobei handelt es sich um eine Anweisung? ",
     answer: [" if ", " div ", " width "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Was kann verwendet werden um mehrere Elemente nacheinander zu manipulieren? ",
     answer: [" Schleifen ", " Konstanten ", " Objekte "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Welche Operatoren Art gibt es? ",
     answer: [" Logische ", " Unlogische ", " Unnötige "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 },
 {
     question: " Was wird mit einer DOM- Manipulation manipuliert? ",
     answer: [" Inhalte ", " Events ", " Dominik "],
-    correct: true
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 }];
 
 let gemischtquiz: question[] = [{
     question: " gemischte Fragen ",
     answer: [" gemischte Antworten "],
-    correct: true
+    // wie auf fragen und antworten von htmlquiz,... verweisen?
+    correct: [answer[0]=true, answer[1]=false, answer[3]=false]
 }]
 
 
-let i = 0;
 
-
-function Aufgabenstellung(frage, antwort) {
-    let newinhalt = document.querySelector("#inhalt") as HTMLDivElement
-    newinhalt.innerHTML = "";
-    let fragetext = document.createElement("h2");
-    fragetext.classList.add("frage");
-    newinhalt.appendChild(fragetext);
-    fragetext.innerHTML = frage.question;
-    
-    let antwortmöglichkeiten: number= 2;
-    answer=[];
-    for(let index=0; index<=antwortmöglichkeiten; index++){
-        let Zufallsantwort= Math.floor(Math.random()*3);
-        answer[index]=answer[Zufallsantwort];
-        let Antworten= document.createElement("p");
-        Antworten.classList.add("antwort");
-        Antworten.innerHTML= antwort.answer[Zufallsantwort];
-        newinhalt.appendChild(Antworten);
-        console.log(answer)
-    }
-    // jede antwort nur einmal!!!
-
-    let punktestand = document.createElement("p");
-    punktestand.classList.add("punktestand");
-    punktestand.innerHTML = " Punktestand: " + i;
-    newinhalt.appendChild(punktestand);
-    let next = document.createElement("button");
-    next.classList.add("next");
-    next.innerHTML = " Weiter ";
-    newinhalt.appendChild(next);
-
-}
-
+// htmlquiz=[];
+// cssquiz=[];
+// typescriptquiz=[];
+// gemischtquiz=[];
 document.querySelector("#html").addEventListener("click", function () {
+
+
     let frage = htmlquiz[0];
     let antwort = htmlquiz[0];
     Aufgabenstellung(frage, antwort);
+
 })
+
 document.querySelector("#css").addEventListener("click", function () {
     let frage = cssquiz[0];
     let antwort = cssquiz[0];
@@ -180,3 +157,99 @@ document.querySelector("#gemischt").addEventListener("click", function () {
     let antwort = gemischtquiz[0];
     Aufgabenstellung(frage, antwort);
 })
+
+
+
+
+
+
+
+
+function Aufgabenstellung(frage, antwort) {
+
+
+    let newinhalt = document.querySelector("#inhalt") as HTMLDivElement
+    newinhalt.innerHTML = "";
+    
+    let fragetext = document.createElement("h2");
+    fragetext.classList.add("frage");
+    newinhalt.appendChild(fragetext);
+    fragetext.innerHTML = frage.question;
+
+
+    let antwortmöglichkeiten: number = 2;
+    answer = [];
+    correct=[];
+    // let answer[0]=true;
+    // warum kann nicht answer.length verwendet werden?
+
+    for (let index = 0; index <= antwortmöglichkeiten; index++) {
+        let Zufallsantwort = Math.floor(Math.random() * 3);
+        answer[index] = answer[Zufallsantwort];
+        let Antworten = document.createElement("p");
+        Antworten.classList.add("antwort");
+        Antworten.innerHTML = antwort.answer[Zufallsantwort];
+        newinhalt.appendChild(Antworten);
+
+        let circle = document.createElement("p");
+        circle.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
+        newinhalt.appendChild(circle);
+        // wie kann zugewiesen werden das abhaken richtige lösung sein soll
+        // wie kooperieren circle und correct
+
+        let clicked = 0
+
+        circle.onclick = function click() {
+            clicked++;
+            if (clicked % 2 !== 0) {
+
+                circle.classList.remove("circle", "fa-regular", "fa-circle", "fa-2x")
+                circle.classList.add("tick", "fa-solid", "fa-check", "fa-2x")
+    
+                if(circle.classList.contains("tick")&& clicked % 1!==0){
+                    // circle.classList.remove("tick", "fa-solid", "fa-check", "fa-2x")
+                circle.classList.add("circle", "fa-regular", "fa-circle", "fa-2x")
+                }
+            }
+            else {
+
+                circle.classList.remove("tick", "fa-solid", "fa-check", "fa-2x")
+                circle.classList.add("circle", "fa-regular", "fa-circle", "fa-2x")
+
+            }
+// nur eins darf ausgewählt werden,wenn ein anderes ausgewählt wird, verschwindet das andere
+// mehrfaches auswählen darf nicht möglich sein 
+        }
+    Antworten.prepend(circle)};
+    // jede antwort nur einmal!!!
+    // jede frage nur einmal außer wenn falsch beantwortet wurde, dann kann sie wieder vorkommen
+
+
+
+    let punktestand = document.createElement("p");
+    let i=0;
+    punktestand.classList.add("punktestand");
+    punktestand.innerHTML = " Punktestand: " + i;
+    newinhalt.appendChild(punktestand);
+    let next = document.createElement("button");
+    next.classList.add("next");
+    next.innerHTML = " Weiter ";
+    newinhalt.appendChild(next);
+
+    document.querySelector(".next").addEventListener("click", function () {
+        i+=1;
+        // punktstand wird nicht immer plus 1 bspw. wenn frage falsch war
+        let nextPage = document.querySelector("#inhalt") as HTMLDivElement
+        nextPage.innerHTML = "";
+        let frage = htmlquiz[1];
+        let antwort = htmlquiz[1];
+        Aufgabenstellung(frage, antwort);
+        // htmlquiz,css,typescript,gemischt Fragen alle shufflen mit einer funktion (schleife)
+    })
+
+}
+
+
+
+
+
