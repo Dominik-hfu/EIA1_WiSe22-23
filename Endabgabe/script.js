@@ -1,124 +1,16 @@
-let answer = [];
-let correct = [];
-let htmlquiz = [{
-        question: " Was heißt HTML? ",
-        answer: [" Hypertext markup language ", " Hypertext makeup language ", " Hypertext markup linguini "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Was ist HTML? ",
-        answer: [" Auszeichnungssprache ", " Fremdsprache ", " Zeichensprache "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " HTML beeinhaltet: ",
-        answer: [" Tags ", " Nachts ", " Mittags "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Wo wird HTML interpretiert und gerendert? ",
-        answer: [" Browser ", " Peach ", " Yoshi "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Wie wird die Strukturierung der DOM Inhalte genannt? ",
-        answer: [" DOM-Tree ", " DOM-INIK ", " DOM-Flower "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Für was steht UTF-8? ",
-        answer: [" Zeichensatz ", " Sprache ", " Lesereihenfolge "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Ein HTML Dokument enthält: ",
-        answer: [" Head ", " Shoulder ", " Knees "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    }];
-let cssquiz = [{
-        question: " Was heißt CSS? ",
-        answer: [" Cascading style sheets ", " Cascading styling software ", " Cascading super style "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Bei welchem der Begriffe, handelt es sich um eine Selektor Art? ",
-        answer: [" Class ", " Group ", " Set "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Welches Verhalten gibt es in CSS? ",
-        answer: [" Flussverhalten ", " Meerverhalten ", " Seeverhalten "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Welcher Einheit dient der Layout Anpassung? ",
-        answer: [" px ", " kcal ", " nm "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Was heißt Responsive? ",
-        answer: [" stufenlos ", " stufenweise ", " aussichtslos "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Wie wird eine CSS Eigenschaft eingebunden? ",
-        answer: [" extern ", " inline ", " intern "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " In CSS werden Eigenschaften : ",
-        answer: ["vererbt ", " verheiratet ", " verschlafen "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    }];
-let typescriptquiz = [{
-        question: "Für was wird Typescript benötigt?",
-        answer: [" Interaktive Anwendungen ", " Statische Anwendungen ", " Braucht man eigentlich gar nicht "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Welche Klammer umschließt eine Funktion? ",
-        answer: [" {} ", " () ", " [] "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Was ist ein Array? ",
-        answer: [" Eine Liste ", " Eine Tabelle ", " Eine Rechnung "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Wobei handelt es sich um eine Anweisung? ",
-        answer: [" if ", " div ", " width "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Was kann verwendet werden um mehrere Elemente nacheinander zu manipulieren? ",
-        answer: [" Schleifen ", " Konstanten ", " Objekte "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Welche Operatoren Art gibt es? ",
-        answer: [" Logische ", " Unlogische ", " Unnötige "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    },
-    {
-        question: " Was wird mit einer DOM- Manipulation manipuliert? ",
-        answer: [" Inhalte ", " Events ", " Dominik "],
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    }];
-let gemischtquiz = [{
-        question: " gemischte Fragen ",
-        answer: [" gemischte Antworten "],
-        // wie auf fragen und antworten von htmlquiz,... verweisen?
-        correct: [answer[0] = true, answer[1] = false, answer[3] = false]
-    }];
-// htmlquiz=[];
-// cssquiz=[];
-// typescriptquiz=[];
-// gemischtquiz=[];
 document.querySelector("#html").addEventListener("click", function () {
+    let newinhalt = document.querySelector("#inhalt");
+    newinhalt.innerHTML = "";
+    let fragetext = document.createElement("h2");
+    fragetext.classList.add("frage");
+    newinhalt.appendChild(fragetext);
+    fragetext.innerHTML = "hallo";
     let frage = htmlquiz[0];
     let antwort = htmlquiz[0];
     Aufgabenstellung(frage, antwort);
+    // let Zufallsfrage=Math.floor(Math.random()*htmlquiz.length);
+    // newinhalt.innerHTML=frage(htmlquiz[Zufallsfrage]);
+    // htmlquiz.splice(Zufallsfrage, 1);
 });
 document.querySelector("#css").addEventListener("click", function () {
     let frage = cssquiz[0];
@@ -135,6 +27,119 @@ document.querySelector("#gemischt").addEventListener("click", function () {
     let antwort = gemischtquiz[0];
     Aufgabenstellung(frage, antwort);
 });
+let answer = [];
+let correct = [];
+let htmlquiz = [{
+        question: " Was heißt HTML? ",
+        answer: [" Hypertext markup language ", " Hypertext makeup language ", " Hypertext markup linguini "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Was ist HTML? ",
+        answer: [" Auszeichnungssprache ", " Fremdsprache ", " Zeichensprache "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " HTML beeinhaltet: ",
+        answer: [" Tags ", " Nachts ", " Mittags "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Wo wird HTML interpretiert und gerendert? ",
+        answer: [" Browser ", " Peach ", " Yoshi "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Wie wird die Strukturierung der DOM Inhalte genannt? ",
+        answer: [" DOM-Tree ", " DOM-INIK ", " DOM-Flower "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Für was steht UTF-8? ",
+        answer: [" Zeichensatz ", " Sprache ", " Lesereihenfolge "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Ein HTML Dokument enthält: ",
+        answer: [" Head ", " Shoulder ", " Knees "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    }];
+let cssquiz = [{
+        question: " Was heißt CSS? ",
+        answer: [" Cascading style sheets ", " Cascading styling software ", " Cascading super style "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Bei welchem der Begriffe, handelt es sich um eine Selektor Art? ",
+        answer: [" Class ", " Group ", " Set "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Welches Verhalten gibt es in CSS? ",
+        answer: [" Flussverhalten ", " Meerverhalten ", " Seeverhalten "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Welcher Einheit dient der Layout Anpassung? ",
+        answer: [" px ", " kcal ", " nm "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Was heißt Responsive? ",
+        answer: [" stufenlos ", " stufenweise ", " aussichtslos "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Wie wird eine CSS Eigenschaft eingebunden? ",
+        answer: [" extern ", " inline ", " intern "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " In CSS werden Eigenschaften : ",
+        answer: ["vererbt ", " verheiratet ", " verschlafen "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    }];
+let typescriptquiz = [{
+        question: "Für was wird Typescript benötigt?",
+        answer: [" Interaktive Anwendungen ", " Statische Anwendungen ", " Braucht man eigentlich gar nicht "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Welche Klammer umschließt eine Funktion? ",
+        answer: [" {} ", " () ", " [] "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Was ist ein Array? ",
+        answer: [" Eine Liste ", " Eine Tabelle ", " Eine Rechnung "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Wobei handelt es sich um eine Anweisung? ",
+        answer: [" if ", " div ", " width "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Was kann verwendet werden um mehrere Elemente nacheinander zu manipulieren? ",
+        answer: [" Schleifen ", " Konstanten ", " Objekte "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Welche Operatoren Art gibt es? ",
+        answer: [" Logische ", " Unlogische ", " Unnötige "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    },
+    {
+        question: " Was wird mit einer DOM- Manipulation manipuliert? ",
+        answer: [" Inhalte ", " Events ", " Dominik "],
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    }];
+let gemischtquiz = [{
+        question: " gemischte Fragen ",
+        answer: [" gemischte Antworten "],
+        // wie auf fragen und antworten von htmlquiz,... verweisen?
+        correct: [answer[0] = true, answer[1] = false, answer[2] = false]
+    }];
 function Aufgabenstellung(frage, antwort) {
     let newinhalt = document.querySelector("#inhalt");
     newinhalt.innerHTML = "";
@@ -142,6 +147,9 @@ function Aufgabenstellung(frage, antwort) {
     fragetext.classList.add("frage");
     newinhalt.appendChild(fragetext);
     fragetext.innerHTML = frage.question;
+    // let Zufallsfrage=Math.floor(Math.random()*htmlquiz.length);
+    // newinhalt.innerHTML=frage(htmlquiz[Zufallsfrage]);
+    // htmlquiz.splice(Zufallsfrage, 1);
     let antwortmöglichkeiten = 2;
     answer = [];
     correct = [];
@@ -194,10 +202,9 @@ function Aufgabenstellung(frage, antwort) {
     document.querySelector(".next").addEventListener("click", function () {
         i += 1;
         // punktstand wird nicht immer plus 1 bspw. wenn frage falsch war
-        let nextPage = document.querySelector("#inhalt");
-        nextPage.innerHTML = "";
         let frage = htmlquiz[1];
         let antwort = htmlquiz[1];
+        // frage= cssquiz[1];
         Aufgabenstellung(frage, antwort);
         // htmlquiz,css,typescript,gemischt Fragen alle shufflen mit einer funktion (schleife)
     });
