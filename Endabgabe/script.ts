@@ -1,11 +1,5 @@
 document.querySelector("#html").addEventListener("click", function () {
 
-    let newinhalt = document.querySelector("#inhalt") as HTMLDivElement
-    newinhalt.innerHTML = "";
-    let fragetext = document.createElement("h2");
-    fragetext.classList.add("frage");
-    newinhalt.appendChild(fragetext);
-    fragetext.innerHTML = "hallo";
     let frage = htmlquiz[0];
     let antwort = htmlquiz[0];
     Aufgabenstellung(frage, antwort);
@@ -160,7 +154,7 @@ let gemischtquiz: question[] = [{
     correct: [answer[0] = true, answer[1] = false, answer[2] = false]
 }];
 
-
+let i=0;
 
 function Aufgabenstellung(frage, antwort) {
 
@@ -178,8 +172,7 @@ function Aufgabenstellung(frage, antwort) {
 
 
     let antwortmöglichkeiten: number = 2;
-    answer = [];
-    correct = [];
+
     // let answer[0]=true;
     // warum kann nicht answer.length verwendet werden?
 
@@ -194,32 +187,28 @@ function Aufgabenstellung(frage, antwort) {
         let circle = document.createElement("p");
         circle.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
         newinhalt.appendChild(circle);
-        // wie kann zugewiesen werden das abhaken richtige lösung sein soll
-        // wie kooperieren circle und correct
+        // // wie kann zugewiesen werden das abhaken richtige lösung sein soll
+        // // wie kooperieren circle und correct
 
-        let clicked = 0
+
+        //     // nur eins darf ausgewählt werden,wenn ein anderes ausgewählt wird, verschwindet das andere
+        //     // mehrfaches auswählen darf nicht möglich sein 
+        // }
+
+        let clicked = 0;
 
         circle.onclick = function click() {
             clicked++;
             if (clicked % 2 !== 0) {
-
-                circle.classList.remove("circle", "fa-regular", "fa-circle", "fa-2x")
-                circle.classList.add("tick", "fa-solid", "fa-check", "fa-2x")
-
-                if (circle.classList.contains("tick") && clicked % 1 !== 0) {
-                    // circle.classList.remove("tick", "fa-solid", "fa-check", "fa-2x")
-                    circle.classList.add("circle", "fa-regular", "fa-circle", "fa-2x")
-                }
+                circle.classList.remove("circle", "fa-regular", "fa-circle", "fa-2x");
+                circle.classList.add("tick", "fa-solid", "fa-check", "fa-2x");
+            } else {
+                circle.classList.remove("tick", "fa-solid", "fa-check", "fa-2x");
+                circle.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
             }
-            else {
+        };
+        
 
-                circle.classList.remove("tick", "fa-solid", "fa-check", "fa-2x")
-                circle.classList.add("circle", "fa-regular", "fa-circle", "fa-2x")
-
-            }
-            // nur eins darf ausgewählt werden,wenn ein anderes ausgewählt wird, verschwindet das andere
-            // mehrfaches auswählen darf nicht möglich sein 
-        }
         Antworten.prepend(circle)
     };
     // jede antwort nur einmal!!!
@@ -228,11 +217,10 @@ function Aufgabenstellung(frage, antwort) {
 
 
     let punktestand = document.createElement("p");
-    let i = 0;
     punktestand.classList.add("punktestand");
     punktestand.innerHTML = " Punktestand: " + i;
     newinhalt.appendChild(punktestand);
-    
+
     let next = document.createElement("button");
     next.classList.add("next");
     next.innerHTML = " Weiter ";
@@ -243,10 +231,34 @@ function Aufgabenstellung(frage, antwort) {
         // punktstand wird nicht immer plus 1 bspw. wenn frage falsch war
         let frage = htmlquiz[1];
         let antwort = htmlquiz[1];
+        // zufallsfrage und zufallsantwort generieren bzw. auf funktion zurückgreifen
+        
+        
         // frage= cssquiz[1];
-        Aufgabenstellung(frage, antwort);
+        Aufgabenstellung(frage, antwort);})
+
+        if(i==5){
+        newinhalt.innerHTML="";
+        let zertifikat= document.createElement("h1");
+        zertifikat.classList.add("zertifikat");
+        zertifikat.innerHTML="Glückwunsch Sie haben den Kurs erfolgreich bestanden!";
+        newinhalt.appendChild(zertifikat);
+        let neustart=document.createElement("p");
+        neustart.classList.add("neustart", "fa-solid", "fa-rotate-right", "fa-2x");
+        newinhalt.appendChild(neustart);
+        let home=document.createElement("p");
+        home.classList.add("home", "fa-solid", "fa-house", "fa-2x")
+        newinhalt.appendChild(home);
+        neustart.addEventListener("click", function(){
+            newinhalt.innerHTML="";
+            // newinhalt.innerHTML="inhalt";
+            // wie auf inhalt zurückgreifen?
+        })
+    home.addEventListener("click", function(){
+        newinhalt.innerHTML="";
+    })}
         // htmlquiz,css,typescript,gemischt Fragen alle shufflen mit einer funktion (schleife)
-    })
+    
 }
 
 
