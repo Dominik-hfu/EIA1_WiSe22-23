@@ -1,74 +1,46 @@
-let randomnumbrs =[]
-let right_questions=[]
-let firstnumber=0
-let clicked=0
+function kategorie(questiontype: string) {
 
+    switch (questiontype) {
 
-
-
-function init(questiontype:string,){
-
-    switch(questiontype){
-
-        case 'HTML':{
-
-            Aufgabenstellung('HTML')
+        case 'HTML': {
+            Aufgabenstellung('HTML');
             break;
-
         }
-        case 'CSS':{
-
-            Aufgabenstellung('CSS')
+        case 'CSS': {
+            Aufgabenstellung('CSS');
             break;
-
         }
-        case 'TS':{
-            Aufgabenstellung('TS')
+        case 'TS': {
+            Aufgabenstellung('TS');
             break;
-
         };
-        case 'gemischt':{
-
-            Aufgabenstellung('gemischt')
+        case 'gemischt': {
+            Aufgabenstellung('gemischt');
             break;
-
         }
-
-
-
-
-
-
     }
-
-
-
-
 }
+// Function kategorie greift zurück auf function Aufgabenstellung. Legt durch case und zusammen mit querySelector (darunter) fest, welches Quiz gestartet werden soll
 document.querySelector("#html").addEventListener("click", function () {
-
-   
-   init('HTML');
-   
-    })
+    kategorie('HTML');
+})
 document.querySelector("#css").addEventListener("click", function () {
-    init('CSS');
+    kategorie('CSS');
 })
 document.querySelector("#typescript").addEventListener("click", function () {
-    init('TS');
+    kategorie('TS');
 })
 document.querySelector("#gemischt").addEventListener("click", function () {
-    init('gemischt');
+    kategorie('gemischt');
 })
-
+//querySelector verweisen auf id´s in HTML, EventListener lässt diese klickbar werden und verweist auf richitge Case in der Kategorie und Aufgabenstellungs function
 interface question {
     question: string;
     answer: string[];
     correct: string;
 }
-
-let answer = [];
-let correct = [];
+//Interface dient als Grundstruktur und Datentypträger für Objekte
+//Interface, sowie Objekt besteht aus Frage, 3 Antwortmöglichkeiten und der richigen Antwort
 
 let htmlquiz: question[] = [{
     question: " Was heißt HTML? ",
@@ -148,11 +120,11 @@ let cssquiz: question[] = [{
 
 let typescriptquiz: question[] = [{
     question: "Für was wird Typescript benötigt?",
-    answer: [" Interaktive Anwendungen ", " Statische Anwendungen ", " Braucht man eigentlich gar nicht "],
+    answer: [" Interaktive Anwendungen ", " Statische Anwendungen ", " Dynamische Anwendungen "],
     correct: " Interaktive Anwendungen "
 },
 {
-    question: " Welche Klammer umschließt eine Funktion? ",
+    question: " Welcher Klammertyp umschließt eine Funktion? ",
     answer: [" {} ", " () ", " [] "],
     correct: " {} "
 },
@@ -168,8 +140,8 @@ let typescriptquiz: question[] = [{
 },
 {
     question: " Was kann verwendet werden um mehrere Elemente nacheinander zu manipulieren? ",
-    answer: [" Schleifen ", " Konstanten ", " Objekte "],
-    correct: " Schleifen "
+    answer: [" Schleife ", " Konstante ", " Objekt "],
+    correct: " Schleife "
 },
 {
     question: " Welche Operatoren Art gibt es? ",
@@ -181,216 +153,218 @@ let typescriptquiz: question[] = [{
     answer: [" Inhalte ", " Events ", " Dominik "],
     correct: " Inhalte "
 }];
+// 3 Objekte für HTML, CSS, Typescript mit Fragen, Antwortmöglichkeiten und richtiger Antwort
+// Objekte sind vom typ:question (Interface), damit auf einzelne Fragen, deren Antworten und richtige Antworten zugegriffen werden kann
+// Die Antworten bestehen aus einem Array und sind ein verschachteltes Array im Gesamtarray quiz (htmlquiz,...)
 
 let gemischtquiz: question[] = [];
-for(let j=0; j<7;j++){
-    gemischtquiz[j]=htmlquiz[j];
-    gemischtquiz[j+7]=cssquiz[j];
-    gemischtquiz[j+14]=typescriptquiz[j];
+for (let j = 0; j < 7; j++) {
+    gemischtquiz[j] = htmlquiz[j];
+    gemischtquiz[j + 7] = cssquiz[j];
+    gemischtquiz[j + 14] = typescriptquiz[j];
 }
-let i=0;
+//Das gemischtquiz greift über die Variable j, auf alle drei Quizze zu, deshalb müssen keine eigenen Fragen erstellt werden
+// Ist j<=6 wird das htmlquiz aufgerufen, ist 7=<j<=13 wird cssquiz aufgerufen, ist 13<=j<=20 wird typescriptquiz aufgerufen
+let i = 0;
+// wird später für Punktestand und Ende des Quizzes benötigt, muss aber global nzw. außerhalb der Funktion deklariert werden
+let right_questions = [];
+// wird ebenfalls später benötigt, um die bisher richtig beantworteten Fragen in diesem Array zu speichern und somit vom Quiz ausschließen zu können
+function Aufgabenstellung(type: string) {
+// Function Aufgabenstellung erstellt die gesamte Aufgabe, mit Frage, Antwortmöglichkeiten, Circles, Punktestand und Weiter Button
+    let quiz = [];
+    switch (type) {
 
-htmlquiz[0].answer
-
-function Aufgabenstellung(type:string) {
-    
-    let quiz = []
-    switch(type){
-
-        case 'HTML':{
-            quiz=htmlquiz
+        case 'HTML': {
+            quiz = htmlquiz
             break;
         }
-        case 'CSS':{
-            quiz=cssquiz
-            break;
-        }
-
-        case 'TS':{
-            quiz=typescriptquiz
+        case 'CSS': {
+            quiz = cssquiz
             break;
         }
 
-        case 'gemischt':{
-            quiz=gemischtquiz
+        case 'TS': {
+            quiz = typescriptquiz
             break;
         }
 
-
-
+        case 'gemischt': {
+            quiz = gemischtquiz
+            break;
+        }
     }
-    let frage=Math.floor(Math.random()*quiz.length);
-    let newinhalt = document.querySelector("#inhalt") as HTMLDivElement
+// Switch case wird hier benötigt um der Variable quiz vom Typ Array die verschiedenen Quizarten zuzuordnen.
+// Der Parameter type gleicht ab ob quiz=htmlquiz oder cssquiz,...
+// Über case bspw. HTML wird dem querySelector, der Function Kategorie und Aufgabenstellung zugeordnet
+// Break gehört zur Schreibweise von switch case und verlässt die Anweisung wenn der Fall eintritt, erspart unnötiges abgleichen der Fälle
+    let frage = Math.floor(Math.random() * quiz.length);
+    let newinhalt = document.querySelector("#inhalt") as HTMLDivElement;
     newinhalt.innerHTML = "";
 
     let fragetext = document.createElement("h2");
     fragetext.classList.add("frage");
     newinhalt.appendChild(fragetext);
-    fragetext.innerHTML = quiz[frage].question;
+    fragetext.innerHTML = quiz[frage].question; //welches Objekt/ Quiz, Reihenfolge Durcheinander, von Objekt Stelle Question nehmen bzw. erstellen
+// Variable frage erstellt zufällige Frage aus Quiz
+// Newinhalt löscht über id Inhalt div
+// Fragetext wird erstellt und hinzugefügt
 
-    let answerarr=[]
-    let arr=[]
-    for (let index = 0; index < quiz[frage].answer.length; index++) {
-        let wdh=true
-        while(wdh==true){
-        let Zufallsantwort = Math.floor(Math.random() * 3);
-        if(answerarr.includes(Zufallsantwort)==false){
-            arr[index] = quiz[frage].answer[Zufallsantwort];
-            let Antworten = document.createElement("p");
-            Antworten.setAttribute('id','antwort'+index.toString())
-            Antworten.classList.add("antwort");
-            answerarr.push(Zufallsantwort);
-            Antworten.innerHTML = quiz[frage].answer[Zufallsantwort];
-            newinhalt.appendChild(Antworten);
-            let circle = document.createElement("p");
-            circle.setAttribute('id',index.toString())
-            circle.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
-            newinhalt.appendChild(circle);
-            Antworten.prepend(circle)
-            wdh= false
-        }
-        else
-        {
-            wdh =true
-        }
+    let answerarr = [];
+    let arr = [];
+    // Arrays werden benötigt um zugreifen zu können
+    for (let index = 0; index < quiz[frage].answer.length; index++) { //Welches Objekt/ Quiz, welche Frage, alle Antworten aus dem Objekt
+        let wdh = true;
+        while (wdh == true) {
+            let Zufallsantwort = Math.floor(Math.random() * 3);
+            if (answerarr.includes(Zufallsantwort) == false) {
+                arr[index] = quiz[frage].answer[Zufallsantwort];
+                let Antworten = document.createElement("p");
+                Antworten.setAttribute('id', 'antwort' + index.toString());
+                Antworten.classList.add("antwort");
+                answerarr.push(Zufallsantwort);
+                Antworten.innerHTML = quiz[frage].answer[Zufallsantwort];
+                newinhalt.appendChild(Antworten);
+                let circle = document.createElement("p");
+                circle.setAttribute('id', index.toString());
+                circle.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
+                newinhalt.appendChild(circle);
+                Antworten.prepend(circle);
+                wdh = false;
+    // Solange wdh richtig ist, zufällige Antwort generieren
+    // Wenn die Antwort (Zufallsantwort) nicht im answerarr ist, soll er durch arr über index vom Quiz... die Frage... und die dazugehörigen Antworten
+    // nehmen und durch Zufallsantwort in random Reihenfolge ausgeben
+    // Wenn Antwort ausgegeben wurde soll er diese in answerarr pushen, damit diese kein zweites Mal vorkommen kann
+    // Wenn Antwort in answerarr, dann ist wdh falsch, wenn nicht, dann ist wdh= true und er sucht wieder nach einer Antwortmöglichkeit
+    // Sind alle Antwortmöglichkeiten ausgegeben geht er weiter im Code
+    // Zusätzlich soll circle erstellt werden und eine ID vom Index bekommen, genauso wie Antworten, damit wir außerhalb der Anweisung darauf zugreifen können
+            }
+            else {
+                wdh = true
+            }
 
         }
 
     };
     let circle1 = document.getElementById("0");
-    let circle2=document.getElementById("1");
-    let circle3=document.getElementById("2");
-    // jede antwort nur einmal!!!
-    // jede frage nur einmal außer wenn falsch beantwortet wurde, dann kann sie wieder vorkommen
-    let our_lösung=''
+    let circle2 = document.getElementById("1");
+    let circle3 = document.getElementById("2");
+// Zugriff auf circles über ID
+    let gewaehlte_lösung = '';// Gewählte Lösung des Benutzers
     circle1.onclick = function click() {
 
-        circle1.classList.add("tick", "fa-solid", "fa-check", "fa-2x")
+        circle1.classList.add("tick", "fa-solid", "fa-check", "fa-2x");
         circle2.classList.remove("tick", "fa-solid", "fa-check", "fa-2x");
         circle2.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
         circle3.classList.remove("tick", "fa-solid", "fa-check", "fa-2x");
         circle3.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
-        console.log(circle1)
         let antwort = document.getElementById("antwort0");
-        our_lösung=antwort.innerHTML
-        console.log(our_lösung)
+        gewaehlte_lösung = antwort.innerHTML;
     }
     circle2.onclick = function click() {
-        circle2.classList.add("tick", "fa-solid", "fa-check", "fa-2x")
+        circle2.classList.add("tick", "fa-solid", "fa-check", "fa-2x");
         circle1.classList.remove("tick", "fa-solid", "fa-check", "fa-2x");
         circle1.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
         circle3.classList.remove("tick", "fa-solid", "fa-check", "fa-2x");
         circle3.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
         let antwort = document.getElementById("antwort1");
-        our_lösung=antwort.innerHTML
-        console.log(our_lösung)
+        gewaehlte_lösung = antwort.innerHTML;
     }
     circle3.onclick = function click() {
 
-        circle3.classList.add("tick", "fa-solid", "fa-check", "fa-2x")
+        circle3.classList.add("tick", "fa-solid", "fa-check", "fa-2x");
         circle2.classList.remove("tick", "fa-solid", "fa-check", "fa-2x");
         circle2.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
         circle1.classList.remove("tick", "fa-solid", "fa-check", "fa-2x");
         circle1.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
         let antwort = document.getElementById("antwort2");
-        our_lösung=antwort.innerHTML
-        console.log(our_lösung)
-    }
+        gewaehlte_lösung = antwort.innerHTML;
+    }// Wird ein Circle ausgewählt, werden von den anderen beiden die ticks entfernt und circle hinzugefügt
+    // Gewählte lösung wird hier bspw. antwort2
+    // Gewählte Lösung prüft nachher mit richtiger Lösung ab
 
     let punktestand = document.createElement("p");
     punktestand.classList.add("punktestand");
     punktestand.innerHTML = " Punktestand: " + i;
     newinhalt.appendChild(punktestand);
-
+// Punktstand wird erstellt
     let next = document.createElement("button");
     next.classList.add("next");
     next.innerHTML = " Weiter ";
     newinhalt.appendChild(next);
-   
+// Weiter Button wird erstellt
     document.querySelector(".next").addEventListener("click", function () {
-        
-       let eingabe= our_lösung
-       let ergebnis= Lösung(quiz[frage],eingabe)
-       let Zufallsfrage=0
-       if (ergebnis == true){
-            i=i+1
-            right_questions.push(frage)
-            quiz.splice(frage,1)
-            
-            if(type == 'gemischt'){
-                
-                Zufallsfrage=Math.floor(Math.random()*gemischtquiz.length);
-            
-            }
-            else
-            {
-                Zufallsfrage=Math.floor(Math.random()*htmlquiz.length);
-            }
-        
-        }
-        else
-        {
-            
-            if(type == 'gemischt'){
-            
-                Zufallsfrage=Math.floor(Math.random()*gemischtquiz.length);
-            
-            }
-            else
-            {
-                Zufallsfrage=Math.floor(Math.random()*htmlquiz.length);
-            }
+
+        let eingabe = gewaehlte_lösung;
+
+        let ergebnis = Lösung(quiz[frage], eingabe);
+        if (ergebnis == true) {
+            i += 1;
+            right_questions.push(frage);
+            quiz.splice(frage, 1);
             
         }
-                
-        Aufgabenstellung(type)
+// Weiter Button wird hier klickbar. Eingabe ist die gemachte Lösung des Benutzers
+// Ergebnis verweist auf Function Lösung (unten), schaut welches Quiz, welche Frage und welche Antwort gewählt wurde
+// Wenn die gewählte Antwort die richtige Antwort war, Punktestand +1 und Frage wird in right_question Array welches oben deklariert wurde, gepusht
+// Die Größe des Quiz Arrays wird bei pro richtig beantwortete Frage um 1 verkleinert
+        Aufgabenstellung(type);// Function Aufgabenstellung wird ausgeführt
     })
-    
-    if(i==5){
-    newinhalt.innerHTML="";
-    let zertifikat= document.createElement("h1");
-    zertifikat.classList.add("zertifikat");
-    zertifikat.innerHTML="Glückwunsch Sie haben den Kurs erfolgreich bestanden!";
-    newinhalt.appendChild(zertifikat);
-    let neustart=document.createElement("p");
-    neustart.classList.add("neustart", "fa-solid", "fa-rotate-right", "fa-2x");
-    newinhalt.appendChild(neustart);
-    let home=document.createElement("p");
-    home.classList.add("home", "fa-solid", "fa-house", "fa-2x")
-    newinhalt.appendChild(home);
-    neustart.addEventListener("click", function(){
-        newinhalt.innerHTML="";
-        // newinhalt.innerHTML="inhalt";
-        // wie auf inhalt zurückgreifen?
-    })
-    home.addEventListener("click", function(){
-        newinhalt.innerHTML="";
-    })}
-        // htmlquiz,css,typescript,gemischt Fragen alle shufflen mit einer funktion (schleife)
-    
 
-}
-
-
-function Lösung(frage,our_lösung){
-
-    let real_lösung= frage.correct
-
-    console.log(our_lösung)
-    console.log(real_lösung)
-    let ergebnis=false
-    if(our_lösung.includes(real_lösung)==true){
-
-        alert('Richtig')
-        ergebnis=true
+    if (i == 5) {
+        newinhalt.innerHTML = "";
+        let zertifikat = document.createElement("h1");
+        zertifikat.classList.add("zertifikat");
+        zertifikat.innerHTML = " Glückwunsch! ";
+        newinhalt.appendChild(zertifikat);
+        let neustart = document.createElement("p");
+        neustart.classList.add("neustart", "fa-solid", "fa-rotate-right", "fa-6x");
+        newinhalt.appendChild(neustart);
+        let final = document.createElement("p");
+        final.classList.add("final");
+        final.innerHTML= " Sie haben die Punktzahl von "+ i + " Punkten erreicht! "
+        newinhalt.appendChild(final);
+        let home = document.createElement("p");
+        home.classList.add("home", "fa-solid", "fa-house", "fa-6x");
+        newinhalt.appendChild(home);
+        neustart.addEventListener("click", function () {
+            newinhalt.innerHTML = "";
+            // newinhalt.innerHTML="inhalt";
+            // wie auf inhalt zurückgreifen?
+        })
+        home.addEventListener("click", function () {
+            newinhalt.innerHTML = "";
+        })// Wurden 5 Punkte errreicht, wird der Inhalt gelöscht, das Zertifikat und die Buttons Neustart und Home erstellt
     }
-    else{
-        alert('Falsch')
-        ergebnis= false
+    function Lösung(frage, gewaehlte_lösung) {
+    
+        let real_lösung = frage.correct;
+        let ergebnis = false;
+        
+        if (gewaehlte_lösung.includes(real_lösung)) {
+            
+            alert("Richtig");
+            ergebnis = true;            
+        }
+        else {
+            alert("Falsch");
+            ergebnis = false;
+        }
+        return ergebnis;
     }
 
-    return ergebnis    
-}
+}// Variable realLösung überprüft ob frage= correct
+// Wenn gewaehlte Lösung die richige Lösung ist, wird alert Richtig ausgegeben und ergebnis in true umgewandelt
+// Wenn gewählte Lösung falsch ist, wird alert Falsch ausgegeben und ergebnis bleibt false
+// Boolean Status des Ergebnisses wird danach zurückgesetzt (indemfall wieder auf false)
+
+// alert falsch mit korrektut und link
+// alert ander machen innerhtml
+// nach jeder frage verlinkung auf seite
+// finalen punktestand innerhtml anzeigen
+// code erklären
+// variablen anschauen ggf änderen
+// celebration gif auf endseite
+// innerhtml zu viele fragen falsch z.b 12 mal kommt du bist scheiße
 
 
 

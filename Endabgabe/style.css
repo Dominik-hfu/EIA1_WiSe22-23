@@ -1,7 +1,8 @@
 #layout {
     width: 375px;
     height: 667px;
-    background-color: grey;
+    background-image: url(background-g5960f748d_1920.png);
+    /* background-color: #7e7e7e; */
     position: relative;
 }
 
@@ -13,20 +14,34 @@
 
 h1 {
     text-align: center;
+    font-family: 'Segoe UI';
+    font-size: 28pt;
 }
 
 h2 {
     text-align: center;
+    font-family: 'Segoe UI';
+    font-size: 12pt;
+    margin-top: 30px;
+}
+
+div {
+    font-family: 'Segoe UI';
+}
+
+p {
+    font-family: 'Segoe UI';
 }
 
 .buttons {
     transform: translateX(30%);
     text-align: center;
-    opacity: 1;
+    font-weight: 650;
+    margin-top: 40px;
 }
 
-.fade:hover{
-    opacity: 0.5;
+.fade:hover {
+    zoom: 105%;
 }
 
 #html {
@@ -35,8 +50,11 @@ h2 {
     width: 150px;
     border-radius: 10%;
     background-color: #00ffbb;
-    box-shadow: 0 0 100px 3px #00ffbb;
+    box-shadow: 0 0 20px 5px #00ffbb;
     border: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #css {
@@ -45,8 +63,11 @@ h2 {
     width: 150px;
     border-radius: 10%;
     background-color: #ff0055;
-    box-shadow: 0 0 100px 3px #ff0055;
+    box-shadow: 0 0 20px 5px #ff0055;
     border: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #typescript {
@@ -55,8 +76,11 @@ h2 {
     width: 150px;
     border-radius: 10%;
     background-color: #00ffbb;
-    box-shadow: 0 0 100px 3px #00ffbb;
+    box-shadow: 0 0 20px 5px #00ffbb;
     border: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #gemischt {
@@ -65,55 +89,117 @@ h2 {
     width: 150px;
     border-radius: 10%;
     background-color: #ff0055;
-    box-shadow: 0 0 100px 3px #ff0055;
+    box-shadow: 0 0 20px 5px #ff0055;
     border: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.frage{
-    box-shadow: 0 0 100px 3px #00ffbb;
+.frage {
+    box-shadow: 0 10px 10px 0 #ff0055;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    top: 0px;
+    background-color: #ff0055;
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
-.antwort{
-    box-shadow: 0 0 100px 3px #00ffbb;
+.antwort {
+    box-shadow: 0 0 10px 10px #ff0055;
+    border-radius: 10px;
     position: relative;
     top: 100px;
     padding: 20px;
     display: flex;
     justify-content: center;
+    text-align: center;
+    width: 300px;
+    left: 15px;
 }
 
-.circle{
+#antwort1 {
+    margin-bottom: 40px;
+}
+
+#antwort2 {
+    margin-bottom: 40px;
+}
+
+#antwort0 {
+    margin-bottom: 40px;
+}
+
+#antwort1:hover {
+    zoom: 102%;
+}
+
+#antwort2:hover {
+    zoom: 102%;
+}
+
+#antwort0:hover {
+    zoom: 102%;
+}
+
+.circle {
+    color: black;
+    position: absolute;
+    left: 20px;
+    margin-top: -5px;
+}
+
+.tick {
     color: black;
 }
 
-p#1{
-    color: red;
-}
-.tick{
+.neustart {
     color: black;
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
 }
 
-.neustart{
-    color: black;
+.neustart:hover {
+    color: #ff0055;
 }
 
-.home{
+.home {
     color: black;
+    position: absolute;
+    left: 60px;
+    bottom: 60px;
 }
 
-.next{
-    color: #00ffbb;
+.home:hover {
+    color: #ff0055;
+}
+
+.next {
+    color: black;
+    font-weight: 700;
     width: 100px;
     height: 50px;
-    background-color: coral;
+    background-color: #eaeaea;
     position: absolute;
+    border: none;
+    box-shadow: 0 0 3px 4px #eaeaea;
+    border-radius: 10px;
     bottom: 150px;
     right: 10px;
 }
 
+.next:hover {
+    color: #ff0055;
+    zoom: 102%;
+}
+
 #footer {
     background-color: #eaeaea;
+    font-size: 10pt;
     text-align: center;
     position: absolute;
     bottom: 0px;
@@ -124,7 +210,26 @@ p#1{
 }
 
 .punktestand {
-    margin-left: 140px;
+    text-align: center;
+    position: relative;
+    top: 200px;
+    font-size: 12pt;
+    display: flex;
+    justify-content: center;
+}
+
+.final {
+    padding: 20px;
+    text-align: center;
     position: absolute;
-    bottom: 80px;
+    top: 200px;
+}
+
+.zertifikat {
+    text-align: center;
+    position: relative;
+    font-size: 36pt;
+    display: flex;
+    justify-content: center;
+    top: 50px;
 }
