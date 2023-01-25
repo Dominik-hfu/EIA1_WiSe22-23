@@ -1,7 +1,7 @@
 function kategorie(questiontype: string) {
-    
+
     switch (questiontype) {
-        
+
         case 'HTML': {
             Aufgabenstellung('HTML');
             break;
@@ -52,7 +52,7 @@ let htmlquiz: question[] = [{
     question: " Was ist HTML? ",
     answer: [" Auszeichnungssprache ", " Fremdsprache ", " Zeichensprache "],
     correct: " Auszeichnungssprache "
-    
+
 },
 {
     question: " HTML beeinhaltet: ",
@@ -166,16 +166,16 @@ for (let j = 0; j < 7; j++) {
 //Das gemischtquiz greift über die Variable j, auf alle drei Quizze zu, deshalb müssen keine eigenen Fragen erstellt werden
 // Ist j<=6 wird das htmlquiz aufgerufen, ist 7=<j<=13 wird cssquiz aufgerufen, ist 13<=j<=20 wird typescriptquiz aufgerufen
 let i = 0;
-// wird später für Punktestand und Ende des Quizzes benötigt, muss aber global nzw. außerhalb der Funktion deklariert werden
+// wird später für Punktestand und Ende des Quizzes benötigt, muss aber global bzw. außerhalb der Funktion deklariert werden
 let right_questions = [];
 // wird ebenfalls später benötigt, um die bisher richtig beantworteten Fragen in diesem Array zu speichern und somit vom Quiz ausschließen zu können
-let restart= false;
+let restart = false;
 // wird später für restart des Quizzes benötigt
 function Aufgabenstellung(type: string) {
     // Function Aufgabenstellung erstellt die gesamte Aufgabe, mit Frage, Antwortmöglichkeiten, Circles, Punktestand und Weiter Button
     let quiz = [];
     switch (type) {
-        
+
         case 'HTML': {
             quiz = htmlquiz
             break;
@@ -184,12 +184,12 @@ function Aufgabenstellung(type: string) {
             quiz = cssquiz
             break;
         }
-        
+
         case 'TS': {
             quiz = typescriptquiz
             break;
         }
-        
+
         case 'gemischt': {
             quiz = gemischtquiz
             break;
@@ -198,11 +198,11 @@ function Aufgabenstellung(type: string) {
     // Switch case wird hier benötigt um der Variable quiz vom Typ Array die verschiedenen Quizarten zuzuordnen.
     // Der Parameter type gleicht ab ob quiz=htmlquiz oder cssquiz,...
     // Über case bspw. HTML wird dem querySelector, der Function Kategorie und Aufgabenstellung zugeordnet
-    // Break gehört zur Schreibweise von switch case und verlässt die Anweisung wenn der Fall eintritt, erspart unnötiges abgleichen der Fälle
+    // Break gehört zur Schreibweise von switch case und verlässt die Anweisung wenn der Fall eintritt, erspart unnötiges Abgleichen der Fälle
     let frage = Math.floor(Math.random() * quiz.length);
     let newinhalt = document.querySelector("#inhalt") as HTMLDivElement;
     newinhalt.innerHTML = "";
-    
+
     let fragetext = document.createElement("h2");
     fragetext.classList.add("frage");
     newinhalt.appendChild(fragetext);
@@ -210,7 +210,7 @@ function Aufgabenstellung(type: string) {
     // Variable frage erstellt zufällige Frage aus Quiz
     // Newinhalt löscht über id Inhalt div
     // Fragetext wird erstellt und hinzugefügt
-    
+
     let answerarr = [];
     let arr = [];
     // Arrays werden benötigt um zugreifen zu können
@@ -220,7 +220,7 @@ function Aufgabenstellung(type: string) {
             let Zufallsantwort = Math.floor(Math.random() * 3);
             if (answerarr.includes(Zufallsantwort) == false) {
                 arr[index] = quiz[frage].answer[Zufallsantwort];
-                let Antworten= document.createElement("p");
+                let Antworten = document.createElement("p");
                 Antworten.setAttribute('id', 'antwort' + index.toString());
                 Antworten.classList.add("antwort");
                 answerarr.push(Zufallsantwort);
@@ -243,9 +243,9 @@ function Aufgabenstellung(type: string) {
             else {
                 wdh = true
             }
-            
+
         }
-        
+
     };
     let circle1 = document.getElementById("0");
     let circle2 = document.getElementById("1");
@@ -253,7 +253,7 @@ function Aufgabenstellung(type: string) {
     // Zugriff auf circles über ID
     let gewaehlte_lösung = '';// Gewählte Lösung des Benutzers
     circle1.onclick = function click() {
-        
+
         circle1.classList.add("tick", "fa-solid", "fa-check", "fa-2x");
         circle2.classList.remove("tick", "fa-solid", "fa-check", "fa-2x");
         circle2.classList.add("circle", "fa-regular", "fa-circle", "fa-2x");
@@ -288,29 +288,41 @@ function Aufgabenstellung(type: string) {
     punktestand.innerHTML = " Punktestand: " + i;
     newinhalt.appendChild(punktestand);
     // Punktstand wird erstellt
-    let next = document.createElement("button");
-    next.classList.add("next");
-    next.innerHTML = " Weiter ";
-    newinhalt.appendChild(next);
+    let check = document.createElement("button");
+    check.classList.add("check");
+    check.innerHTML = " Weiter ";
+    newinhalt.appendChild(check);
     // Weiter Button wird erstellt
-    document.querySelector(".next").addEventListener("click", function () {
-        
+    document.querySelector(".check").addEventListener("click", function () {
+
         let eingabe = gewaehlte_lösung;
-        
+
         let ergebnis = Lösung(quiz[frage], eingabe);
         if (ergebnis == true) {
             i += 1;
             right_questions.push(frage);
             quiz.splice(frage, 1);
-            
+
         }
-        // Weiter Button wird hier klickbar. Eingabe ist die gemachte Lösung des Benutzers
+        // Check Button wird hier klickbar. Eingabe ist die gemachte Lösung des Benutzers
         // Ergebnis verweist auf Function Lösung (unten), schaut welches Quiz, welche Frage und welche Antwort gewählt wurde
         // Wenn die gewählte Antwort die richtige Antwort war, Punktestand +1 und Frage wird in right_question Array welches oben deklariert wurde, gepusht
         // Die Größe des Quiz Arrays wird bei pro richtig beantwortete Frage um 1 verkleinert
-        Aufgabenstellung(type);// Function Aufgabenstellung wird ausgeführt
+        let weiter = document.createElement("button");
+        weiter.classList.add("weiter");
+        weiter.innerText = "Nächste Frage";
+        newinhalt.appendChild(weiter);
+        let button = document.querySelector(".next") as HTMLButtonElement;
+        weiter.addEventListener("click", function () {
+            Aufgabenstellung(type);// Function Aufgabenstellung wird ausgeführt
+            button.style.display = "";// Button ist sichtbar
+
+        });
+        button.style.display = "none";// Button ist nicht mehr sichtbar
     })
-    
+    // Der Weiter Button dient als Button für den Übergang zur nächsten Frage.
+    //Dieser wird benötigt, um den Hinweis auf die richtige bzw. falsche Frage ausgeben zu können.
+
     if (i == 5) {
         newinhalt.innerHTML = "";
         let zertifikat = document.createElement("h1");
@@ -322,66 +334,48 @@ function Aufgabenstellung(type: string) {
         newinhalt.appendChild(neustart);
         let final = document.createElement("p");
         final.classList.add("final");
-        final.innerHTML= " Sie haben die Punktzahl von "+ i + " Punkten erreicht! "
+        final.innerHTML = " Sie haben die Punktzahl von " + i + " Punkten erreicht! "
         newinhalt.appendChild(final);
-        let home = document.createElement("p");
-        home.classList.add("home", "fa-solid", "fa-house", "fa-6x");
-        newinhalt.appendChild(home);
         neustart.addEventListener("click", function () {
             newinhalt.innerHTML = "";
-            restart=true;
-            if(restart==true){
-                window.location.reload()
-            // newinhalt.innerHTML="";
-            // newinhalt.appendChild(fragetext)
-            // newinhalt.appendChild(next)
-            // newinhalt.appendChild(punktestand)
-            // i=0;
-            // return(punktestand)
-            // return (answerarr);
-            // return (right_questions);
-            
-        }})
-                home.addEventListener("click", function () {
-            newinhalt.innerHTML = "";
-        })// Wurden 5 Punkte errreicht, wird der Inhalt gelöscht, das Zertifikat und die Buttons Neustart und Home erstellt
+            restart = true;
+            if (restart == true) {
+                window.location.reload()// Startet die Seite neu
+            }
+        })
+
+        // Wurden 5 Punkte errreicht, wird der Inhalt gelöscht, das Zertifikat, der Button Neustart und die Endpunktzahl (final) erstellt
     }
     function Lösung(frage, gewaehlte_lösung) {
-        
+
         let real_lösung = frage.correct;
         let ergebnis = false;
-        let ausgabe= document.createElement("p");
-        
+        let ausgabe = document.createElement("p");
+
         if (gewaehlte_lösung.includes(real_lösung)) {
             ausgabe.classList.add("right");
-            ausgabe.innerHTML = "Ihre Antwort war richtig";
-            ergebnis = true;    
-            newinhalt.appendChild(ausgabe);
-        
+            ausgabe.innerHTML = "Ihre Antwort war richtig!";
+            ergebnis = true;
+            document.body.appendChild(ausgabe);
+            setTimeout(function () { ausgabe.remove() }, 4000)
+
         }
         else {
             ausgabe.classList.add("wrong");
-            ausgabe.innerHTML = "Ihre Antwort war falsch, die Richtige Lösung lautet "+ quiz[frage].correct;
+            ausgabe.innerHTML = "Ihre Antwort war falsch! Die Richtige Lösung lautet: " + frage.correct;
             ergebnis = false;
-            newinhalt.appendChild(ausgabe);
-            // alert("Falsch");
+            document.body.appendChild(ausgabe);
+            setTimeout(function () { ausgabe.remove() }, 4000)
+
         }
         return ergebnis;
     }
-    
-}// Variable realLösung überprüft ob frage= correct
-// Wenn gewaehlte Lösung die richige Lösung ist, wird alert Richtig ausgegeben und ergebnis in true umgewandelt
-// Wenn gewählte Lösung falsch ist, wird alert Falsch ausgegeben und ergebnis bleibt false
-// Boolean Status des Ergebnisses wird danach zurückgesetzt (indemfall wieder auf false)
 
-// alert falsch mit korrektut und link
-// alert ander machen innerhtml
-// nach jeder frage verlinkung auf seite
-// finalen punktestand innerhtml anzeigen
-// code erklären
-// variablen anschauen ggf änderen
-// celebration gif auf endseite
-// innerhtml zu viele fragen falsch z.b 12 mal kommt du bist scheiße
+}// Variable realLösung überprüft ob frage= correct
+// Wenn gewaehlte Lösung die richige Lösung ist, wird ausgabe Richtig ausgegeben und ergebnis in true umgewandelt
+// Wenn gewählte Lösung falsch ist, wird ausgabe Falsch ausgegeben und ergebnis bleibt false
+// Boolean Status des Ergebnisses wird danach zurückgesetzt (indemfall wieder auf false)
+// SetTimeout function lässt die Ausgabe nach 4s wieder verschwinden
 
 
 

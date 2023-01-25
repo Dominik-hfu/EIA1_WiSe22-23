@@ -2,14 +2,13 @@
     width: 375px;
     height: 667px;
     background-image: url(background-g5960f748d_1920.png);
-    /* background-color: #7e7e7e; */
     position: relative;
 }
 
 .logo {
     width: 50px;
     height: 50px;
-    transform: translateX(330%);
+    transform: translateX(335%);
 }
 
 h1 {
@@ -97,19 +96,19 @@ p {
 }
 
 .frage {
-    box-shadow: 0 10px 10px 0 #ff0055;
+    box-shadow: 0 2px 5px #00ffbb;
     height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
     top: 0px;
-    background-color: #ff0055;
+    background-color: #00ffbb;
     position: relative;
     display: flex;
     justify-content: center;
 }
 
 .antwort {
-    box-shadow: 0 0 10px 10px #ff0055;
+    box-shadow: 0 0 10px 10px #00ffbb;
     border-radius: 10px;
     position: relative;
     top: 100px;
@@ -158,27 +157,17 @@ p {
 
 .neustart {
     color: black;
-    position: absolute;
-    right: 60px;
-    bottom: 60px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 200px;
 }
 
 .neustart:hover {
     color: #ff0055;
 }
 
-.home {
-    color: black;
-    position: absolute;
-    left: 60px;
-    bottom: 60px;
-}
-
-.home:hover {
-    color: #ff0055;
-}
-
-.next {
+.check {
     color: black;
     font-weight: 700;
     width: 100px;
@@ -192,7 +181,7 @@ p {
     right: 10px;
 }
 
-.next:hover {
+.check:hover {
     color: #ff0055;
     zoom: 102%;
 }
@@ -212,7 +201,8 @@ p {
 .punktestand {
     text-align: center;
     position: relative;
-    top: 200px;
+    bottom: -150px;
+    padding-bottom: 10px;
     font-size: 12pt;
     display: flex;
     justify-content: center;
@@ -234,12 +224,43 @@ p {
     top: 50px;
 }
 
-.right{
-font-size: 50pt;
-color: green;
+.right {
+    font-size: 14pt;
+    color: green;
+    position: absolute;
+    top: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 375px;
+    text-align: center;
 }
 
-.wrong{
-    font-size: 50pt;
+.wrong {
+    font-size: 14pt;
     color: red;
+    position: absolute;
+    top: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 375px;
+    text-align: center;
+}
+
+.weiter {
+    color: black;
+    font-weight: 700;
+    width: 100px;
+    height: 50px;
+    background-color: #eaeaea;
+    position: absolute;
+    border: none;
+    box-shadow: 0 0 3px 4px #eaeaea;
+    border-radius: 10px;
+    bottom: 150px;
+    right: 10px;
+}
+
+.weiter:hover {
+    color: #ff0055;
+    zoom: 102%;
 }
