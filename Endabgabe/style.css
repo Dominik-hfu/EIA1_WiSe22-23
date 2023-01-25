@@ -50,7 +50,7 @@ p {
     width: 150px;
     border-radius: 10%;
     background-color: #00ffbb;
-    box-shadow: 0 0 20px 5px #00ffbb;
+    box-shadow: 0 0 10px 3px #00ffbb;
     border: 0px;
     display: flex;
     align-items: center;
@@ -63,7 +63,7 @@ p {
     width: 150px;
     border-radius: 10%;
     background-color: #ff0055;
-    box-shadow: 0 0 20px 5px #ff0055;
+    box-shadow: 0 0 10px 3px #ff0055;
     border: 0px;
     display: flex;
     align-items: center;
@@ -76,7 +76,7 @@ p {
     width: 150px;
     border-radius: 10%;
     background-color: #00ffbb;
-    box-shadow: 0 0 20px 5px #00ffbb;
+    box-shadow: 0 0 10px 3px #00ffbb;
     border: 0px;
     display: flex;
     align-items: center;
@@ -89,7 +89,7 @@ p {
     width: 150px;
     border-radius: 10%;
     background-color: #ff0055;
-    box-shadow: 0 0 20px 5px #ff0055;
+    box-shadow: 0 0 10px 3px #ff0055;
     border: 0px;
     display: flex;
     align-items: center;
@@ -232,4 +232,14 @@ p {
     display: flex;
     justify-content: center;
     top: 50px;
+}
+
+.right{
+font-size: 50pt;
+color: green;
+}
+
+.wrong{
+    font-size: 50pt;
+    color: red;
 }

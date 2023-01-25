@@ -155,6 +155,8 @@ let i = 0;
 // wird später für Punktestand und Ende des Quizzes benötigt, muss aber global nzw. außerhalb der Funktion deklariert werden
 let right_questions = [];
 // wird ebenfalls später benötigt, um die bisher richtig beantworteten Fragen in diesem Array zu speichern und somit vom Quiz ausschließen zu können
+let restart = false;
+// wird später für restart des Quizzes benötigt
 function Aufgabenstellung(type) {
     // Function Aufgabenstellung erstellt die gesamte Aufgabe, mit Frage, Antwortmöglichkeiten, Circles, Punktestand und Weiter Button
     let quiz = [];
@@ -301,8 +303,18 @@ function Aufgabenstellung(type) {
         newinhalt.appendChild(home);
         neustart.addEventListener("click", function () {
             newinhalt.innerHTML = "";
-            // newinhalt.innerHTML="inhalt";
-            // wie auf inhalt zurückgreifen?
+            restart = true;
+            if (restart == true) {
+                window.location.reload();
+                // newinhalt.innerHTML="";
+                // newinhalt.appendChild(fragetext)
+                // newinhalt.appendChild(next)
+                // newinhalt.appendChild(punktestand)
+                // i=0;
+                // return(punktestand)
+                // return (answerarr);
+                // return (right_questions);
+            }
         });
         home.addEventListener("click", function () {
             newinhalt.innerHTML = "";
@@ -311,13 +323,19 @@ function Aufgabenstellung(type) {
     function Lösung(frage, gewaehlte_lösung) {
         let real_lösung = frage.correct;
         let ergebnis = false;
+        let ausgabe = document.createElement("p");
         if (gewaehlte_lösung.includes(real_lösung)) {
-            alert("Richtig");
+            ausgabe.classList.add("right");
+            ausgabe.innerHTML = "Ihre Antwort war richtig";
             ergebnis = true;
+            newinhalt.appendChild(ausgabe);
         }
         else {
-            alert("Falsch");
+            ausgabe.classList.add("wrong");
+            ausgabe.innerHTML = "Ihre Antwort war falsch, die Richtige Lösung lautet " + quiz[frage].correct;
             ergebnis = false;
+            newinhalt.appendChild(ausgabe);
+            // alert("Falsch");
         }
         return ergebnis;
     }
